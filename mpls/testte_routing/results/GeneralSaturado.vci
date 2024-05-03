@@ -1,0 +1,3429 @@
+file 28784862 1714651856                                        
+version 2
+run General-0-20240502-13:13:46-1196
+attr configname General
+attr datetime 20240502-13:13:46
+attr datetimef 20240502-131346
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network RSVPTE4
+attr processid 1196
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config debug-on-errors true
+config image-path ../../../images
+config network RSVPTE4
+config sim-time-limit 50s
+config total-stack 60MiB
+config **.host{1..2,5}.numApps 1
+config **.host{1..2,5}.app[*].typename UdpBasicApp
+config **.host{1..2,5}.app[0].localPort 100
+config **.host{1..2,5}.app[0].destPort 100
+config **.host{1..2,5}.app[0].messageLength "128 bytes"
+config **.host{1..2,5}.app[0].sendInterval 0.01s
+config **.host{1..2,5}.app[0].destAddresses "\"host3\""
+config **.host3.numApps 1
+config **.host3.app[0].typename UdpSink
+config **.host3.app[0].localPort 100
+config **.host1.ipv4.routingTable.routingFile "\"host1.rt\""
+config **.host2.ipv4.routingTable.routingFile "\"host2.rt\""
+config **.host3.ipv4.routingTable.routingFile "\"host3.rt\""
+config **.host4.ipv4.routingTable.routingFile "\"host4.rt\""
+config **.host5.ipv4.routingTable.routingFile "\"host5.rt\""
+config **.LSR1.classifier.config "xmldoc(\"LSR1_fec.xml\")"
+config **.LSR1.rsvp.traffic "xmldoc(\"LSR1_rsvp.xml\")"
+config **.LSR*.rsvp.helloInterval 0.2s
+config **.LSR*.rsvp.helloTimeout 0.5s
+config **.LSR1.ipv4.routingTable.routingFile "\"LSR1.rt\""
+config **.LSR2.ipv4.routingTable.routingFile "\"LSR2.rt\""
+config **.LSR3.ipv4.routingTable.routingFile "\"LSR3.rt\""
+config **.LSR4.ipv4.routingTable.routingFile "\"LSR4.rt\""
+config **.LSR5.ipv4.routingTable.routingFile "\"LSR5.rt\""
+config **.LSR6.ipv4.routingTable.routingFile "\"LSR6.rt\""
+config **.LSR7.ipv4.routingTable.routingFile "\"LSR7.rt\""
+config **.ppp[*].queue.typename DropTailQueue
+config **.ppp[*].queue.packetCapacity 10
+config **.scenarioManager.script "xml(\"<scenario/>\")"
+
+vector 0 RSVPTE4.LSR1.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+0	82580 8156 0 32178 0 2.992173333333 322 0 10 372 2062
+0	1825049 285 32260 32993 3.001137959627 3.082173333333 11 0 1 1 1
+0	1871849 26 33080 33080 3.092173333333 3.092173333333 1 0 0 0 0
+0	1877832 26 33168 33168 3.102173333333 3.102173333333 1 0 0 0 0
+0	1881107 78186 33267 266744 3.112173333333 28.672173333333 2858 0 2 178 188
+0	16338480 66430 266849 461502 28.682173333333 49.992173333333 2380 0 2 146 154
+vector 1 RSVPTE4.LSR1.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+1	90736 8505 0 32178 0 2.992173333333 322 0 16768 439056 3368914432
+1	1825334 288 32260 32993 3.001137959627 3.082173333333 11 0 1280 1280 1638400
+1	1871875 26 33080 33080 3.092173333333 3.092173333333 1 0 0 0 0
+1	1877858 26 33168 33168 3.102173333333 3.102173333333 1 0 0 0 0
+1	1959293 78695 33267 266744 3.112173333333 28.672173333333 2858 0 1448 215120 274099840
+1	16404910 66848 266849 461502 28.682173333333 49.992173333333 2380 0 1448 176704 225178112
+vector 2 RSVPTE4.LSR1.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+2	99241 11396 0 32178 0 2.992173333333 486 0 1 243 243
+2	1825622 462 32256 32993 3.00108 3.082173333333 20 0 1 10 10
+2	1871901 45 33061 33080 3.09108 3.092173333333 2 0 1 1 1
+2	1877884 45 33149 33168 3.10108 3.102173333333 2 0 1 1 1
+2	2037988 130509 33248 266744 3.11108 28.672173333333 5380 0 1 2690 2690
+2	16471758 111250 266826 461502 28.68108 49.992173333333 4484 0 1 2242 2242
+vector 3 RSVPTE4.LSR1.ppp[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+3	110637 27395 0 32196 0 2.9944 1131 0 3 640 878
+3	1826084 630 32286 33011 3.002173333333 3.0844 27 0 1 9 9
+3	1871946 70 33082 33098 3.092173333333 3.0944 3 0 1 1 1
+3	1877929 52 33170 33172 3.102173333333 3.102173333333 2 0 1 1 1
+3	2168497 197167 33188 266748 3.1044 28.672173333333 7932 0 1 2685 2685
+3	16583008 168104 266770 461520 28.6744 49.9944 6615 0 1 2239 2239
+vector 4 RSVPTE4.LSR1.ppp[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+4	138032 28950 0 32196 0 2.9944 1131 0 3744 772968 1303675200
+4	1826714 657 32286 33011 3.002173333333 3.0844 27 0 1248 11232 14017536
+4	1872016 73 33082 33098 3.092173333333 3.0944 3 0 1248 1248 1557504
+4	1877981 55 33170 33172 3.102173333333 3.102173333333 2 0 1248 1248 1557504
+4	2365664 205094 33188 266748 3.1044 28.672173333333 7932 0 1248 3212640 3986150400
+4	16751112 174714 266770 461520 28.6744 49.9944 6615 0 1248 2678712 3323618496
+vector 5 RSVPTE4.LSR1.ppp[1].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+5	166982 33484 0 32220 0 2.996573333333 1425 0 1 712 712
+5	1827371 792 32286 33030 3.002173333333 3.086573333333 36 0 1 18 18
+5	1872089 62 33082 33098 3.092173333333 3.0944 3 0 1 2 2
+5	1875930 26 33113 33113 3.096573333333 3.096573333333 1 0 0 0 0
+5	1878036 26 33170 33170 3.102173333333 3.102173333333 1 1 1 1 1
+5	2570758 247021 33188 266746 3.1044 28.672173333333 10494 0 1 5247 5247
+5	16925826 210904 266770 461544 28.6744 49.996573333333 8753 0 1 4376 4376
+vector 6 RSVPTE4.LSR1.ppp[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+6	200466 141 0 836 0 0.052173333333 9 0 0 0 0
+vector 7 RSVPTE4.LSR1.ppp[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+7	200607 141 0 836 0 0.052173333333 9 0 0 0 0
+vector 8 RSVPTE4.LSR1.ppp[2].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+8	200748 201 0 851 0 0.053013333333 9 0 1 4 4
+vector 9 RSVPTE4.LSR1.ppp[3].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+9	200949 141 0 835 0 0.052173333333 9 0 0 0 0
+vector 10 RSVPTE4.LSR1.ppp[3].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+10	201090 150 0 835 0 0.052173333333 9 0 0 0 0
+vector 11 RSVPTE4.LSR1.ppp[3].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+11	201240 210 0 850 0 0.053013333333 9 0 1 4 4
+vector 12 RSVPTE4.LSR1.ppp[4].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+12	201450 150 0 837 0 0.052173333333 9 0 0 0 0
+vector 13 RSVPTE4.LSR1.ppp[4].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+13	201600 150 0 837 0 0.052173333333 9 0 0 0 0
+vector 14 RSVPTE4.LSR1.ppp[4].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+14	201750 210 0 852 0 0.053013333333 9 0 1 4 4
+vector 15 RSVPTE4.LSR2.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+15	201960 2108 0 32219 0 2.99620541103 86 0 10 278 1934
+15	2817779 3655 34043 266075 3.19620541103 28.59620541103 133 0 0 0 0
+15	17136730 3112 267897 461543 28.79620541103 49.99620541103 111 0 0 0 0
+vector 16 RSVPTE4.LSR2.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+16	204068 2263 0 32219 0 2.99620541103 86 0 21696 389208 4927634880
+16	2821434 3655 34043 266075 3.19620541103 28.59620541103 133 0 0 0 0
+16	17139842 3112 267897 461543 28.79620541103 49.99620541103 111 0 0 0 0
+vector 17 RSVPTE4.LSR2.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+17	206331 2450 0 32221 0 2.997698744363 97 0 1 48 48
+17	2825089 7438 34043 266077 3.19620541103 28.597698744363 266 0 1 133 133
+17	17142954 6331 267897 461545 28.79620541103 49.997698744363 222 0 1 111 111
+vector 18 RSVPTE4.LSR2.ppp[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+18	208781 4983 0 32215 0 2.99608 230 0 2 7 9
+18	1828163 187 32317 33029 3.00608 3.08608 9 0 0 0 0
+18	1875956 20 33112 33112 3.09608 3.09608 1 0 0 0 0
+18	2832527 59558 33202 266688 3.10608 28.66608 2690 0 0 0 0
+18	17149285 50920 266789 461539 28.67608 49.99608 2244 0 0 0 0
+vector 19 RSVPTE4.LSR2.ppp[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+19	213764 4998 0 32215 0 2.99608 230 0 4928 11496 40193600
+19	1828350 187 32317 33029 3.00608 3.08608 9 0 0 0 0
+19	1875976 20 33112 33112 3.09608 3.09608 1 0 0 0 0
+19	2892085 59558 33202 266688 3.10608 28.66608 2690 0 0 0 0
+19	17200205 50920 266789 461539 28.67608 49.99608 2244 0 0 0 0
+vector 20 RSVPTE4.LSR2.ppp[1].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+20	218762 10717 0 32227 0 2.998306666667 441 0 1 220 220
+20	1828537 403 32317 33029 3.00608 3.08608 17 0 1 9 9
+20	1872151 27 33036 33036 3.088306666667 3.088306666667 1 0 0 0 0
+20	1875996 47 33112 33124 3.09608 3.098306666667 2 0 1 1 1
+20	2951643 135997 33202 266695 3.10608 28.668306666667 5380 0 1 2690 2690
+20	17251125 115936 266789 461551 28.67608 49.998306666667 4488 0 1 2244 2244
+vector 21 RSVPTE4.LSR2.ppp[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+21	229479 1457 0 31865 0 2.957440227996 60 0 2 12 16
+21	3087640 3640 33689 265721 3.157440227996 28.557440227996 128 0 0 0 0
+21	17367061 3103 267543 461189 28.757440227996 49.957440227996 107 0 0 0 0
+vector 22 RSVPTE4.LSR2.ppp[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+22	230936 1483 0 31865 0 2.957440227996 60 0 7808 27848 131684928
+22	3091280 3640 33689 265721 3.157440227996 28.557440227996 128 0 0 0 0
+22	17370164 3103 267543 461189 28.757440227996 49.957440227996 107 0 0 0 0
+vector 23 RSVPTE4.LSR2.ppp[2].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+23	232419 2437 0 31866 0 2.957813561329 95 0 1 47 47
+23	3094920 7280 33689 265722 3.157440227996 28.557813561329 256 0 1 128 128
+23	17373267 6206 267543 461190 28.757440227996 49.957813561329 214 0 1 107 107
+vector 24 RSVPTE4.LSR3.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+24	234856 1461 0 31418 0 2.910209697334 60 0 4 26 64
+24	3102200 3783 33242 265274 3.110209697334 28.510209697334 133 0 0 0 0
+24	17379473 3219 267096 460742 28.710209697334 49.910209697334 111 0 0 0 0
+vector 25 RSVPTE4.LSR3.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+25	236317 1497 0 31418 0 2.910209697334 60 0 10848 56688 388687488
+25	3105983 3783 33242 265274 3.110209697334 28.510209697334 133 0 0 0 0
+25	17382692 3219 267096 460742 28.710209697334 49.910209697334 111 0 0 0 0
+vector 26 RSVPTE4.LSR3.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+26	237814 2429 0 31422 0 2.910583030667 95 0 1 47 47
+26	3109766 7566 33242 265278 3.110209697334 28.510583030667 266 0 1 133 133
+26	17385911 6438 267096 460746 28.710209697334 49.910583030667 222 0 1 111 111
+vector 27 RSVPTE4.LSR3.ppp[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+27	240243 14520 0 32200 0 2.995401285279 550 0 2 30 40
+27	1828940 243 32269 32979 3.001573333333 3.081573333333 9 0 0 0 0
+27	1872178 27 33066 33066 3.091573333333 3.091573333333 1 0 0 0 0
+27	1878062 27 33154 33154 3.101573333333 3.101573333333 1 0 0 0 0
+27	3117332 76372 33253 266730 3.111573333333 28.671573333333 2685 0 0 0 0
+27	17392349 64931 266835 461524 28.681573333333 49.995401285279 2239 0 0 0 0
+vector 28 RSVPTE4.LSR3.ppp[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+28	254763 14583 0 32200 0 2.995401285279 550 0 9536 45352 225051456
+28	1829183 243 32269 32979 3.001573333333 3.081573333333 9 0 0 0 0
+28	1872205 27 33066 33066 3.091573333333 3.091573333333 1 0 0 0 0
+28	1878089 27 33154 33154 3.101573333333 3.101573333333 1 0 0 0 0
+28	3193704 76372 33253 266730 3.111573333333 28.671573333333 2685 0 0 0 0
+28	17457280 64931 266835 461524 28.681573333333 49.995401285279 2239 0 0 0 0
+vector 29 RSVPTE4.LSR3.ppp[1].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+29	269346 27919 0 32202 0 2.995774618612 1051 0 1 525 525
+29	1829426 486 32269 33006 3.001573333333 3.083746666666 18 0 1 9 9
+29	1872232 54 33066 33093 3.091573333333 3.093746666666 2 0 1 1 1
+29	1878116 54 33154 33183 3.101573333333 3.103746666666 2 0 1 1 1
+29	3270076 152716 33253 266730 3.111573333333 28.671573333333 5369 0 1 2685 2685
+29	17522211 129891 266757 461526 28.673746666666 49.995774618612 4479 0 1 2239 2239
+vector 30 RSVPTE4.LSR3.ppp[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+30	297265 5248 0 32235 0 2.9994 257 0 3 24 50
+30	1829912 152 32336 32953 3.0094 3.0794 8 0 0 0 0
+30	1872286 19 33044 33044 3.0894 3.0894 1 0 0 0 0
+30	1876043 19 33132 33132 3.0994 3.0994 1 0 0 0 0
+30	3422792 56058 33226 266703 3.1094 28.6694 2690 0 0 0 0
+30	17652102 48012 266809 461559 28.6794 49.9994 2244 0 0 0 0
+vector 31 RSVPTE4.LSR3.ppp[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+31	302513 5289 0 32235 0 2.9994 257 0 17184 79880 887308864
+31	1830064 152 32336 32953 3.0094 3.0794 8 0 0 0 0
+31	1872305 19 33044 33044 3.0894 3.0894 1 0 0 0 0
+31	1876062 19 33132 33132 3.0994 3.0994 1 0 0 0 0
+31	3478850 56058 33226 266703 3.1094 28.6694 2690 0 0 0 0
+31	17700114 48012 266809 461559 28.6794 49.9994 2244 0 0 0 0
+vector 32 RSVPTE4.LSR3.ppp[2].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+32	307802 11410 0 32235 0 2.9994 484 0 1 242 242
+32	1830216 395 32272 32981 3.001626666667 3.081626666667 17 0 1 8 8
+32	1872324 46 33044 33068 3.0894 3.091626666667 2 0 1 1 1
+32	1876081 19 33132 33132 3.0994 3.0994 1 1 1 1 1
+32	1878170 27 33156 33156 3.101626666667 3.101626666667 1 0 0 0 0
+32	3534908 132538 33226 266732 3.1094 28.671626666667 5380 0 1 2690 2690
+32	17748126 113031 266809 461559 28.6794 49.9994 4487 0 1 2244 2244
+vector 33 RSVPTE4.LSR4.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+33	319212 1320 0 31465 0 2.915103839377 54 0 3 17 35
+33	3667446 3743 33289 265321 3.115103839377 28.515103839377 133 0 0 0 0
+33	17861157 3187 267143 460789 28.715103839377 49.915103839377 111 0 0 0 0
+vector 34 RSVPTE4.LSR4.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+34	320532 1351 0 31465 0 2.915103839377 54 0 15456 64408 822783552
+34	3671189 3743 33289 265321 3.115103839377 28.515103839377 133 0 0 0 0
+34	17864344 3187 267143 460789 28.715103839377 49.915103839377 111 0 0 0 0
+vector 35 RSVPTE4.LSR4.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+35	321883 2178 0 31466 0 2.91547717271 85 0 1 42 42
+35	3674932 7398 33289 265322 3.115103839377 28.51547717271 266 0 1 133 133
+35	17867531 6299 267143 460790 28.715103839377 49.91547717271 222 0 1 111 111
+vector 36 RSVPTE4.LSR4.ppp[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+36	324061 21038 0 32232 0 2.998746666666 793 0 2 78 96
+36	1830611 513 32297 33005 3.003306666667 3.083306666667 19 0 1 1 1
+36	1872370 54 33041 33092 3.088746666666 3.093306666667 2 0 0 0 0
+36	1876100 27 33129 33129 3.098746666666 3.098746666666 1 0 0 0 0
+36	1878197 27 33182 33182 3.103306666667 3.103306666667 1 0 0 0 0
+36	3682330 153467 33223 266723 3.108746666666 28.670919999999 5399 0 1 153 153
+36	17873830 130470 266756 461556 28.673306666667 49.998746666666 4502 0 1 126 126
+vector 37 RSVPTE4.LSR4.ppp[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+37	345099 21215 0 32232 0 2.998746666666 793 0 3040 71616 100215936
+37	1831124 515 32297 33005 3.003306666667 3.083306666667 19 0 168 168 28224
+37	1872424 54 33041 33092 3.088746666666 3.093306666667 2 0 0 0 0
+37	1876127 27 33129 33129 3.098746666666 3.098746666666 1 0 0 0 0
+37	1878224 27 33182 33182 3.103306666667 3.103306666667 1 0 0 0 0
+37	3835797 153798 33223 266723 3.108746666666 28.670919999999 5399 0 1280 53024 43359232
+37	18004300 130742 266756 461556 28.673306666667 49.998746666666 4502 0 1280 43024 34788992
+vector 38 RSVPTE4.LSR4.ppp[1].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+38	366314 38800 0 32232 0 2.998746666666 1456 0 1 728 728
+38	1831639 999 32255 33016 3.000919999999 3.085533333334 37 0 1 18 18
+38	1872478 81 33041 33092 3.088746666666 3.093306666667 3 0 1 2 2
+38	1876154 54 33099 33129 3.095533333334 3.098746666666 2 0 1 1 1
+38	1878251 54 33148 33182 3.100919999999 3.103306666667 2 0 1 1 1
+38	3989595 298358 33189 266725 3.105533333334 28.671293333332 10493 0 1 5246 5246
+38	18135042 253691 266756 461556 28.673306666667 49.998746666666 8751 0 1 4376 4376
+vector 39 RSVPTE4.LSR4.ppp[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+39	405114 1210 0 30442 0 2.801239999998 50 0 2 7 9
+39	1832638 27 32264 32264 3.001239999998 3.001239999998 1 0 0 0 0
+39	4287953 3641 34088 266120 3.201239999998 28.601239999998 128 0 0 0 0
+39	18388733 3074 267942 459766 28.801239999998 49.801239999998 106 0 0 0 0
+vector 40 RSVPTE4.LSR4.ppp[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+40	406324 1224 0 30442 0 2.801239999998 50 0 1568 5416 6278720
+40	1832665 27 32264 32264 3.001239999998 3.001239999998 1 0 0 0 0
+40	4291594 3641 34088 266120 3.201239999998 28.601239999998 128 0 0 0 0
+40	18391807 3074 267942 459766 28.801239999998 49.801239999998 106 0 0 0 0
+vector 41 RSVPTE4.LSR4.ppp[2].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+41	407548 2076 0 30448 0 2.801613333331 81 0 1 40 40
+41	1832692 54 32264 32270 3.001239999998 3.001613333331 2 0 1 1 1
+41	4295235 7282 34088 266126 3.201239999998 28.601613333331 256 0 1 128 128
+41	18394881 6148 267942 459772 28.801239999998 49.801613333331 212 0 1 106 106
+vector 42 RSVPTE4.LSR5.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+42	409624 961 0 31103 0 2.876005161161 40 0 2 7 9
+42	1832746 27 32925 32925 3.076005161161 3.076005161161 1 0 0 0 0
+42	4302517 3721 34749 264959 3.276005161161 28.476005161161 132 0 0 0 0
+42	18401029 3191 266781 460427 28.676005161161 49.876005161161 111 0 0 0 0
+vector 43 RSVPTE4.LSR5.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+43	410585 976 0 31103 0 2.876005161161 40 0 2624 6888 11439680
+43	1832773 27 32925 32925 3.076005161161 3.076005161161 1 0 0 0 0
+43	4306238 3721 34749 264959 3.276005161161 28.476005161161 132 0 0 0 0
+43	18404220 3191 266781 460427 28.676005161161 49.876005161161 111 0 0 0 0
+vector 44 RSVPTE4.LSR5.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+44	411561 1576 0 31116 0 2.876378494494 61 0 1 30 30
+44	1832800 54 32925 32938 3.076005161161 3.076378494494 2 0 1 1 1
+44	4309959 7437 34749 264972 3.276005161161 28.476378494494 264 0 1 132 132
+44	18407411 6378 266781 460440 28.676005161161 49.876378494494 222 0 1 111 111
+vector 45 RSVPTE4.LSR5.ppp[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+45	413137 29070 0 32209 0 2.996026666667 1091 0 1 213 213
+45	1832854 972 32250 33023 3.000533333334 3.086026666667 36 0 1 9 9
+45	1872559 54 33059 33097 3.090533333334 3.093853333334 2 0 0 0 0
+45	1876208 54 33104 33106 3.095919999999 3.096026666667 2 0 1 1 1
+45	1878305 27 33147 33147 3.100533333334 3.100533333334 1 0 0 0 0
+45	4317396 291480 33187 266718 3.103853333334 28.670533333334 10253 0 1 2582 2582
+45	18413789 247851 266761 461533 28.673853333334 49.996026666667 8551 0 1 2153 2153
+vector 46 RSVPTE4.LSR5.ppp[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+46	442207 29709 0 32209 0 2.996026666667 1091 0 1248 265824 331748352
+46	1833826 999 32250 33023 3.000533333334 3.086026666667 36 0 1248 11232 14017536
+46	1872613 54 33059 33097 3.090533333334 3.093853333334 2 0 0 0 0
+46	1876262 57 33104 33106 3.095919999999 3.096026666667 2 0 1248 1248 1557504
+46	1878332 27 33147 33147 3.100533333334 3.100533333334 1 0 0 0 0
+46	4608876 299226 33187 266718 3.103853333334 28.670533333334 10253 0 1248 3222336 4021475328
+46	18661640 254310 266761 461533 28.673853333334 49.996026666667 8551 0 1248 2686944 3353306112
+vector 47 RSVPTE4.LSR5.ppp[1].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+47	471916 45205 0 32223 0 2.9982 1747 0 1 873 873
+47	1834825 1367 32250 33023 3.000533333334 3.086026666667 53 0 1 27 27
+47	1872667 100 33032 33097 3.0882 3.093853333334 4 0 1 2 2
+47	1876319 73 33106 33120 3.096026666667 3.0982 3 0 1 1 1
+47	1878359 54 33147 33176 3.100533333334 3.102706666667 2 0 1 1 1
+47	4908102 415893 33187 266750 3.103853333334 28.672706666667 15342 0 1 7671 7671
+47	18915950 353988 266761 461547 28.673853333334 49.9982 12796 0 1 6398 6398
+vector 48 RSVPTE4.LSR5.ppp[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+48	517121 50 0 0 0 0 5 0 0 0 0
+vector 49 RSVPTE4.LSR5.ppp[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+49	517171 50 0 0 0 0 5 0 0 0 0
+vector 50 RSVPTE4.LSR5.ppp[2].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+50	517221 10 0 0 0 0 1 0 0 0 0
+vector 51 RSVPTE4.LSR5.ppp[3].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+51	517231 1347 0 30989 0 2.863671228168 55 0 1 3 3
+51	1836192 27 32811 32811 3.063671228168 3.063671228168 1 0 0 0 0
+51	5323995 3642 34635 266667 3.263671228168 28.663671228168 128 0 0 0 0
+51	19269938 3074 268489 460313 28.863671228168 49.863671228168 106 0 0 0 0
+vector 52 RSVPTE4.LSR5.ppp[3].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+52	518578 1354 0 30989 0 2.863671228168 55 0 1312 2784 2804736
+52	1836219 27 32811 32811 3.063671228168 3.063671228168 1 0 0 0 0
+52	5327637 3642 34635 266667 3.263671228168 28.663671228168 128 0 0 0 0
+52	19273012 3074 268489 460313 28.863671228168 49.863671228168 106 0 0 0 0
+vector 53 RSVPTE4.LSR5.ppp[3].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+53	519932 2462 0 30995 0 2.864044561501 95 0 1 47 47
+53	1836246 54 32811 32817 3.063671228168 3.064044561501 2 0 1 1 1
+53	5331279 7284 34635 266673 3.263671228168 28.664044561501 256 0 1 128 128
+53	19276086 6148 268489 460319 28.863671228168 49.864044561501 212 0 1 106 106
+vector 54 RSVPTE4.LSR5.ppp[4].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+54	522394 1382 0 31295 0 2.89672042099 57 0 1 4 4
+54	1876392 26 33117 33117 3.09672042099 3.09672042099 1 0 0 0 0
+54	5338563 3810 34941 265151 3.29672042099 28.49672042099 142 0 1 5 5
+54	19282234 3260 266973 460619 28.69672042099 49.89672042099 119 0 1 4 4
+vector 55 RSVPTE4.LSR5.ppp[4].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+55	523776 1393 0 31295 0 2.89672042099 57 0 7072 11584 57683968
+55	1876418 26 33117 33117 3.09672042099 3.09672042099 1 0 0 0 0
+55	5342373 3820 34941 265151 3.29672042099 28.49672042099 142 0 208 1040 216320
+55	19285494 3268 266973 460619 28.69672042099 49.89672042099 119 0 208 832 173056
+vector 56 RSVPTE4.LSR5.ppp[4].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+56	525169 2487 0 31296 0 2.897093754323 97 0 1 48 48
+56	1876444 53 33117 33118 3.09672042099 3.097093754323 2 0 1 1 1
+56	5346193 7531 34941 265152 3.29672042099 28.497093754323 274 0 1 137 137
+56	19288762 6451 266973 460620 28.69672042099 49.897093754323 230 0 1 115 115
+vector 57 RSVPTE4.LSR6.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+57	527656 1040 0 31957 0 2.968026666665 43 0 1 5 5
+57	5353724 3640 33781 265813 3.168026666665 28.568026666665 128 0 0 0 0
+57	19295213 3103 267635 461281 28.768026666665 49.968026666665 107 0 0 0 0
+vector 58 RSVPTE4.LSR6.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+58	528696 1052 0 31957 0 2.968026666665 43 0 1888 4320 5902464
+58	5357364 3640 33781 265813 3.168026666665 28.568026666665 128 0 0 0 0
+58	19298316 3103 267635 461281 28.768026666665 49.968026666665 107 0 0 0 0
+vector 59 RSVPTE4.LSR6.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+59	529748 1721 0 31964 0 2.968399999998 67 0 1 33 33
+59	5361004 7280 33781 265820 3.168026666665 28.568399999998 256 0 1 128 128
+59	19301419 6206 267635 461288 28.768026666665 49.968399999998 214 0 1 107 107
+vector 60 RSVPTE4.LSR6.ppp[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+60	531469 1254 0 31090 0 2.874044561501 51 0 1 4 4
+60	1836300 27 32912 32912 3.074044561501 3.074044561501 1 0 0 0 0
+60	5368284 3613 34736 264946 3.274044561501 28.474044561501 127 0 0 0 0
+60	19307625 3103 266768 460414 28.674044561501 49.874044561501 107 0 0 0 0
+vector 61 RSVPTE4.LSR6.ppp[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+61	532723 1262 0 31090 0 2.874044561501 51 0 736 2376 1653312
+61	1836327 27 32912 32912 3.074044561501 3.074044561501 1 0 0 0 0
+61	5371897 3613 34736 264946 3.274044561501 28.474044561501 127 0 0 0 0
+61	19310728 3103 266768 460414 28.674044561501 49.874044561501 107 0 0 0 0
+vector 62 RSVPTE4.LSR6.ppp[1].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+62	533985 2208 0 31093 0 2.874417894834 85 0 1 42 42
+62	1836354 54 32912 32915 3.074044561501 3.074417894834 2 0 1 1 1
+62	5375510 7226 34736 264949 3.274044561501 28.474417894834 254 0 1 127 127
+62	19313831 6206 266768 460417 28.674044561501 49.874417894834 214 0 1 107 107
+vector 63 RSVPTE4.LSR7.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+63	536193 1046 0 31627 0 2.930776513444 44 0 1 3 3
+63	5382736 3748 33451 265483 3.130776513444 28.530776513444 133 0 0 0 0
+63	19320037 3191 267305 460951 28.730776513444 49.930776513444 111 0 0 0 0
+vector 64 RSVPTE4.LSR7.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+64	537239 1053 0 31627 0 2.930776513444 44 0 1888 2272 3639424
+64	5386484 3748 33451 265483 3.130776513444 28.530776513444 133 0 0 0 0
+64	19323228 3191 267305 460951 28.730776513444 49.930776513444 111 0 0 0 0
+vector 65 RSVPTE4.LSR7.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+65	538292 1868 0 31630 0 2.931149846777 73 0 1 36 36
+65	5390232 7531 33451 265486 3.130776513444 28.531149846777 266 0 1 133 133
+65	19326419 6410 267305 460954 28.730776513444 49.931149846777 222 0 1 111 111
+vector 66 RSVPTE4.LSR7.ppp[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+66	540160 6246 0 32168 0 2.991626666667 236 0 1 2 2
+66	1836408 243 32274 32983 3.001626666667 3.081626666667 9 0 0 0 0
+66	1872767 27 33070 33070 3.091626666667 3.091626666667 1 0 0 0 0
+66	1878413 27 33158 33158 3.101626666667 3.101626666667 1 0 0 0 0
+66	5397763 76481 33210 266734 3.107093754323 28.671626666667 2690 0 0 0 0
+66	19332829 65019 266839 461492 28.681626666667 49.991626666667 2243 0 0 0 0
+vector 67 RSVPTE4.LSR7.ppp[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+67	546406 6250 0 32168 0 2.991626666667 236 0 736 904 569920
+67	1836651 243 32274 32983 3.001626666667 3.081626666667 9 0 0 0 0
+67	1872794 27 33070 33070 3.091626666667 3.091626666667 1 0 0 0 0
+67	1878440 27 33158 33158 3.101626666667 3.101626666667 1 0 0 0 0
+67	5474244 76481 33210 266734 3.107093754323 28.671626666667 2690 0 0 0 0
+67	19397848 65019 266839 461492 28.681626666667 49.991626666667 2243 0 0 0 0
+vector 68 RSVPTE4.LSR7.ppp[1].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+68	552656 12298 0 32193 0 2.993853333334 459 0 1 229 229
+68	1836894 486 32274 33008 3.001626666667 3.083853333334 18 0 1 9 9
+68	1872821 54 33070 33095 3.091626666667 3.093853333334 2 0 1 1 1
+68	1878467 27 33158 33158 3.101626666667 3.101626666667 1 1 1 1 1
+68	5550725 152960 33185 266734 3.103853333334 28.671626666667 5380 0 1 2690 2690
+68	19462867 130067 266759 461517 28.673853333334 49.993853333334 4487 0 1 2243 2243
+vector 69 RSVPTE4.host1.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+69	564954 5019 0 32152 0 2.99 304 0 0 0 0
+69	1837380 150 32245 32963 3 3.08 9 0 0 0 0
+69	1872875 17 33054 33054 3.09 3.09 1 0 0 0 0
+69	1878494 16 33142 33142 3.1 3.1 1 0 0 0 0
+69	5703685 46857 33236 266713 3.11 28.67 2557 0 0 0 0
+69	19592934 40269 266819 461569 28.68 50 2133 0 0 0 0
+vector 70 RSVPTE4.host1.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+70	569973 5019 0 32152 0 2.99 304 0 0 0 0
+70	1837530 150 32245 32963 3 3.08 9 0 0 0 0
+70	1872892 17 33054 33054 3.09 3.09 1 0 0 0 0
+70	1878510 16 33142 33142 3.1 3.1 1 0 0 0 0
+70	5750542 46857 33236 266713 3.11 28.67 2557 0 0 0 0
+70	19633203 40269 266819 461569 28.68 50 2133 0 0 0 0
+vector 71 RSVPTE4.host1.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+71	574992 12972 0 32172 0 2.992173333333 599 0 1 299 299
+71	1837680 393 32245 32987 3 3.082173333333 18 0 1 9 9
+71	1872909 44 33054 33074 3.09 3.092173333333 2 0 1 1 1
+71	1878526 43 33142 33162 3.1 3.102173333333 2 0 1 1 1
+71	5797399 119590 33236 266738 3.11 28.672173333333 5114 0 1 2557 2557
+71	19673472 102097 266819 461569 28.68 50 4265 0 1 2133 2133
+vector 72 RSVPTE4.host1.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+72	587964 10 0 0 0 0 1 0 0 0 0
+vector 73 RSVPTE4.host1.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+73	587974 10 0 0 0 0 1 0 0 0 0
+vector 74 RSVPTE4.host1.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+74	587984 10 0 0 0 0 1 0 0 0 0
+vector 75 RSVPTE4.host2.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+75	587994 5019 0 32153 0 2.99 304 0 0 0 0
+75	1838073 150 32246 32964 3 3.08 9 0 0 0 0
+75	1872953 17 33055 33055 3.09 3.09 1 0 0 0 0
+75	1878569 16 33143 33143 3.1 3.1 1 0 0 0 0
+75	5916989 46857 33237 266714 3.11 28.67 2557 0 0 0 0
+75	19775569 40269 266820 461570 28.68 50 2133 0 0 0 0
+vector 76 RSVPTE4.host2.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+76	593013 5019 0 32153 0 2.99 304 0 0 0 0
+76	1838223 150 32246 32964 3 3.08 9 0 0 0 0
+76	1872970 17 33055 33055 3.09 3.09 1 0 0 0 0
+76	1878585 16 33143 33143 3.1 3.1 1 0 0 0 0
+76	5963846 46857 33237 266714 3.11 28.67 2557 0 0 0 0
+76	19815838 40269 266820 461570 28.68 50 2133 0 0 0 0
+vector 77 RSVPTE4.host2.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+77	598032 12972 0 32173 0 2.992173333333 599 0 1 299 299
+77	1838373 393 32246 32988 3 3.082173333333 18 0 1 9 9
+77	1872987 44 33055 33075 3.09 3.092173333333 2 0 1 1 1
+77	1878601 43 33143 33163 3.1 3.102173333333 2 0 1 1 1
+77	6010703 119590 33237 266739 3.11 28.672173333333 5114 0 1 2557 2557
+77	19856107 102097 266820 461570 28.68 50 4265 0 1 2133 2133
+vector 78 RSVPTE4.host2.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+78	611004 10 0 0 0 0 1 0 0 0 0
+vector 79 RSVPTE4.host2.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+79	611014 10 0 0 0 0 1 0 0 0 0
+vector 80 RSVPTE4.host2.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+80	611024 10 0 0 0 0 1 0 0 0 0
+vector 81 RSVPTE4.host3.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+81	611034 50 0 0 0 0 5 0 0 0 0
+vector 82 RSVPTE4.host3.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+82	611084 50 0 0 0 0 5 0 0 0 0
+vector 83 RSVPTE4.host3.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+83	611134 10 0 0 0 0 1 0 0 0 0
+vector 84 RSVPTE4.host3.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+84	611144 23497 0 32225 0 2.9982 871 0 870 378885 219879595
+84	1838766 690 32293 33025 3.002706666667 3.086026666667 26 871 896 22971 20296341
+84	1873031 50 33034 33088 3.0882 3.092706666667 2 897 898 1795 1611013
+84	1876497 50 33108 33122 3.096026666667 3.0982 2 899 900 1799 1618201
+84	1878644 29 33178 33178 3.102706666667 3.102706666667 1 901 901 901 811801
+84	6130293 220774 33198 266752 3.106026666667 28.672706666667 7671 902 8572 36337527 209747045819
+84	19958204 192739 266785 461549 28.676026666667 49.9982 6398 8573 14970 75314057 908384281175
+vector 85 RSVPTE4.host3.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+85	634641 10 0 0 0 0 1 0 0 0 0
+vector 86 RSVPTE4.host3.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+86	634651 10 0 0 0 0 1 0 0 0 0
+vector 87 RSVPTE4.host4.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+87	634661 50 0 0 0 0 5 0 0 0 0
+vector 88 RSVPTE4.host4.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+88	634711 50 0 0 0 0 5 0 0 0 0
+vector 89 RSVPTE4.host4.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+89	634761 10 0 0 0 0 1 0 0 0 0
+vector 90 RSVPTE4.host4.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+90	634771 10 0 0 0 0 1 0 0 0 0
+vector 91 RSVPTE4.host4.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+91	634781 10 0 0 0 0 1 0 0 0 0
+vector 92 RSVPTE4.host4.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+92	634791 10 0 0 0 0 1 0 0 0 0
+vector 93 RSVPTE4.host5.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+93	634801 5019 0 32154 0 2.99 304 0 0 0 0
+93	1839456 150 32247 32965 3 3.08 9 0 0 0 0
+93	1873081 17 33056 33056 3.09 3.09 1 0 0 0 0
+93	1878673 16 33144 33144 3.1 3.1 1 0 0 0 0
+93	6351067 46857 33238 266715 3.11 28.67 2557 0 0 0 0
+93	20150943 40269 266821 461571 28.68 50 2133 0 0 0 0
+vector 94 RSVPTE4.host5.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+94	639820 5019 0 32154 0 2.99 304 0 0 0 0
+94	1839606 150 32247 32965 3 3.08 9 0 0 0 0
+94	1873098 17 33056 33056 3.09 3.09 1 0 0 0 0
+94	1878689 16 33144 33144 3.1 3.1 1 0 0 0 0
+94	6397924 46857 33238 266715 3.11 28.67 2557 0 0 0 0
+94	20191212 40269 266821 461571 28.68 50 2133 0 0 0 0
+vector 95 RSVPTE4.host5.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+95	644839 12972 0 32174 0 2.992173333333 599 0 1 299 299
+95	1839756 393 32247 32989 3 3.082173333333 18 0 1 9 9
+95	1873115 44 33056 33076 3.09 3.092173333333 2 0 1 1 1
+95	1878705 43 33144 33164 3.1 3.102173333333 2 0 1 1 1
+95	6444781 119590 33238 266740 3.11 28.672173333333 5114 0 1 2557 2557
+95	20231481 102097 266821 461571 28.68 50 4265 0 1 2133 2133
+vector 96 RSVPTE4.host5.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+96	657811 10 0 0 0 0 1 0 0 0 0
+vector 97 RSVPTE4.host5.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+97	657821 10 0 0 0 0 1 0 0 0 0
+vector 98 RSVPTE4.host5.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+98	657831 10 0 0 0 0 1 0 0 0 0
+vector 99 RSVPTE4.LSR5.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+99	657841 847 17 31103 0.000583846691 2.876005161161 30 168 4768 20520 41301696
+99	1840149 29 32925 32925 3.076005161161 3.076005161161 1 168 168 168 28224
+99	6564371 3985 34749 264959 3.276005161161 28.476005161161 132 168 208 22376 3800768
+99	20333578 3413 266781 460427 28.676005161161 49.876005161161 111 168 208 18808 3193024
+vector 100 RSVPTE4.LSR5.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+100	658688 871 17 31103 0.000583846691 2.876005161161 30 0 0.003604540504 0.009174691992 2.2082059612818e-05
+100	1840178 28 32925 32925 3.076005161161 3.076005161161 1 0 0 0 0
+100	6568356 3853 34749 264959 3.276005161161 28.476005161161 132 0 0 0 0
+100	20336991 3302 266781 460427 28.676005161161 49.876005161161 111 0 0 0 0
+vector 101 RSVPTE4.LSR5.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+101	659559 877 17 31103 0.000583846691 2.876005161161 30 168 4768 20520 41301696
+101	1840206 30 32925 32925 3.076005161161 3.076005161161 1 168 168 168 28224
+101	6572209 4117 34749 264959 3.276005161161 28.476005161161 132 168 208 22376 3800768
+101	20340293 3524 266781 460427 28.676005161161 49.876005161161 111 168 208 18808 3193024
+vector 102 RSVPTE4.LSR5.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+102	660436 847 17 31103 0.000583846691 2.876005161161 30 21 596 2565 645339
+102	1840236 29 32925 32925 3.076005161161 3.076005161161 1 21 21 21 441
+102	6576326 3985 34749 264959 3.276005161161 28.476005161161 132 21 26 2797 59387
+102	20343817 3413 266781 460427 28.676005161161 49.876005161161 111 21 26 2351 49891
+vector 103 RSVPTE4.LSR5.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+103	661283 847 17 31103 0.000583846691 2.876005161161 30 28 603 2775 682719
+103	1840265 29 32925 32925 3.076005161161 3.076005161161 1 28 28 28 784
+103	6580311 3985 34749 264959 3.276005161161 28.476005161161 132 28 33 3721 105013
+103	20347230 3413 266781 460427 28.676005161161 49.876005161161 111 28 33 3128 88244
+vector 104 RSVPTE4.LSR5.ppp[3].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+104	662130 1367 18 30989 0.000583846691 2.863671228168 47 168 5920 39368 79411904
+104	1840294 30 32811 32811 3.063671228168 3.063671228168 1 168 168 168 28224
+104	6584296 4026 34635 266667 3.263671228168 28.663671228168 128 168 168 21504 3612672
+104	20350643 3392 268489 460313 28.863671228168 49.863671228168 106 168 168 17808 2991744
+vector 105 RSVPTE4.LSR5.ppp[3].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+105	663497 1311 18 30989 0.000583846691 2.863671228168 47 0 0.00892772235 0.010141055684 8.0671515248387e-05
+105	1840324 28 32811 32811 3.063671228168 3.063671228168 1 0 0 0 0
+105	6588322 3770 34635 266667 3.263671228168 28.663671228168 128 0 0 0 0
+105	20354035 3180 268489 460313 28.863671228168 49.863671228168 106 0 0 0 0
+vector 106 RSVPTE4.LSR5.ppp[3].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+106	664808 1374 18 30989 0.000583846691 2.863671228168 47 168 5920 39368 79411904
+106	1840352 30 32811 32811 3.063671228168 3.063671228168 1 168 168 168 28224
+106	6592092 4026 34635 266667 3.263671228168 28.663671228168 128 168 168 21504 3612672
+106	20357215 3392 268489 460313 28.863671228168 49.863671228168 106 168 168 17808 2991744
+vector 107 RSVPTE4.LSR5.ppp[3].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+107	666182 1327 18 30989 0.000583846691 2.863671228168 47 21 740 4921 1240811
+107	1840382 29 32811 32811 3.063671228168 3.063671228168 1 21 21 21 441
+107	6596118 3898 34635 266667 3.263671228168 28.663671228168 128 21 21 2688 56448
+107	20360607 3286 268489 460313 28.863671228168 49.863671228168 106 21 21 2226 46746
+vector 108 RSVPTE4.LSR5.ppp[3].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+108	667509 1327 18 30989 0.000583846691 2.863671228168 47 28 747 5250 1312008
+108	1840411 29 32811 32811 3.063671228168 3.063671228168 1 28 28 28 784
+108	6600016 3898 34635 266667 3.263671228168 28.663671228168 128 28 28 3584 100352
+108	20363893 3286 268489 460313 28.863671228168 49.863671228168 106 28 28 2968 83104
+vector 109 RSVPTE4.LSR5.ppp[4].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+109	668836 1382 19 31295 0.000583846691 2.89672042099 48 168 7072 41256 94920384
+109	1876547 29 33117 33117 3.09672042099 3.09672042099 1 168 168 168 28224
+109	6603914 4113 34941 265151 3.29672042099 28.49672042099 137 168 208 23416 4017088
+109	20367179 3517 266973 460619 28.69672042099 49.89672042099 115 168 208 19640 3366080
+vector 110 RSVPTE4.LSR5.ppp[4].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+110	670218 1330 19 31295 0.000583846691 2.89672042099 48 0 0.00124772235 0.003160752709 2.9199182337063e-06
+110	1876576 27 33117 33117 3.09672042099 3.09672042099 1 0 0 0 0
+110	6608027 3869 34941 265151 3.29672042099 28.49672042099 137 0 0.00044 0.0022 9.68e-07
+110	20370696 3311 266973 460619 28.69672042099 49.89672042099 115 0 0.00044 0.00176 7.744e-07
+vector 111 RSVPTE4.LSR5.ppp[4].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+111	671548 1382 19 31295 0.000583846691 2.89672042099 48 168 7072 41256 94920384
+111	1876603 29 33117 33117 3.09672042099 3.09672042099 1 168 168 168 28224
+111	6611896 4113 34941 265151 3.29672042099 28.49672042099 137 168 208 23416 4017088
+111	20374007 3517 266973 460619 28.69672042099 49.89672042099 115 168 208 19640 3366080
+vector 112 RSVPTE4.LSR5.ppp[4].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+112	672930 1334 19 31295 0.000583846691 2.89672042099 48 21 884 5157 1483131
+112	1876632 28 33117 33117 3.09672042099 3.09672042099 1 21 21 21 441
+112	6616009 3976 34941 265151 3.29672042099 28.49672042099 137 21 26 2927 62767
+112	20377524 3402 266973 460619 28.69672042099 49.89672042099 115 21 26 2455 52595
+vector 113 RSVPTE4.LSR5.ppp[4].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+113	674264 1334 19 31295 0.000583846691 2.89672042099 48 28 891 5493 1557681
+113	1876660 28 33117 33117 3.09672042099 3.09672042099 1 28 28 28 784
+113	6619985 3976 34941 265151 3.29672042099 28.49672042099 137 28 33 3886 110458
+113	20380926 3402 266973 460619 28.69672042099 49.89672042099 115 28 33 3260 92600
+vector 114 RSVPTE4.LSR4.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+114	675598 1226 27 31465 0.004851281637 2.915103839377 42 168 12000 40880 183448576
+114	6623961 4142 33289 265321 3.115103839377 28.515103839377 133 168 216 22584 3845952
+114	20384328 3520 267143 460789 28.715103839377 49.915103839377 111 168 216 18840 3206592
+vector 115 RSVPTE4.LSR4.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+115	676824 1195 27 31465 0.004851281637 2.915103839377 42 0 0.02604 0.06096324828 0.0013690171320691
+115	6628103 3876 33289 265321 3.115103839377 28.515103839377 133 0 0 0 0
+115	20387848 3298 267143 460789 28.715103839377 49.915103839377 111 0 0 0 0
+vector 116 RSVPTE4.LSR4.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+116	678019 1225 27 31465 0.004851281637 2.915103839377 42 168 12000 40880 183448576
+116	6631979 4142 33289 265321 3.115103839377 28.515103839377 133 168 216 22584 3845952
+116	20391146 3520 267143 460789 28.715103839377 49.915103839377 111 168 216 18840 3206592
+vector 117 RSVPTE4.LSR4.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+117	679244 1183 27 31465 0.004851281637 2.915103839377 42 21 1500 5110 2866384
+117	6636121 4009 33289 265321 3.115103839377 28.515103839377 133 21 27 2823 60093
+117	20394666 3409 267143 460789 28.715103839377 49.915103839377 111 21 27 2355 50103
+vector 118 RSVPTE4.LSR4.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+118	680427 1183 27 31465 0.004851281637 2.915103839377 42 28 1507 5404 2939982
+118	6640130 4009 33289 265321 3.115103839377 28.515103839377 133 28 34 3754 106132
+118	20398075 3409 267143 460789 28.715103839377 49.915103839377 111 28 34 3132 88512
+vector 119 RSVPTE4.LSR4.ppp[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+119	681610 22270 28 32232 0.004851281637 2.998746666666 728 168 4768 893480 1136947904
+119	1840440 557 32297 33005 3.003306666667 3.083306666667 18 168 1280 21672 27233856
+119	1873159 62 33041 33092 3.088746666666 3.093306666667 2 1248 1280 2528 3195904
+119	1876688 31 33129 33129 3.098746666666 3.098746666666 1 1248 1248 1248 1557504
+119	1878748 31 33182 33182 3.103306666667 3.103306666667 1 1280 1280 1280 1638400
+119	6644139 169996 33223 266722 3.108746666666 28.670631827828 5246 168 1280 6488720 8177772800
+119	20401484 144238 266756 461556 28.673306666667 49.998746666666 4376 168 1280 5413552 6822952576
+vector 120 RSVPTE4.LSR4.ppp[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+120	703880 20854 28 32232 0.004851281637 2.998746666666 728 0 0.003383418387 0.069367886759 0.00012995664598463
+120	1840997 517 32297 33005 3.003306666667 3.083306666667 18 0 0.000288172171 0.000288172171 8.3043200138853e-08
+120	1873221 56 33041 33092 3.088746666666 3.093306666667 2 0 0 0 0
+120	1876719 28 33129 33129 3.098746666666 3.098746666666 1 0 0 0 0
+120	1878779 28 33182 33182 3.103306666667 3.103306666667 1 0 0 0 0
+120	6814135 156380 33223 266723 3.108746666666 28.670919999999 5246 0 0.001773333335 0.068486037908 5.3021100426337e-05
+120	20545722 132858 266756 461556 28.673306666667 49.998746666666 4376 0 0.001773333335 0.055826250142 4.2715835861569e-05
+vector 121 RSVPTE4.LSR4.ppp[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+121	724734 22280 28 32232 0.004851281637 2.998746666666 728 168 4768 893480 1136947904
+121	1841514 557 32297 33005 3.003306666667 3.083306666667 18 168 1280 21672 27233856
+121	1873277 62 33041 33092 3.088746666666 3.093306666667 2 1248 1280 2528 3195904
+121	1876747 31 33129 33129 3.098746666666 3.098746666666 1 1248 1248 1248 1557504
+121	1878807 31 33182 33182 3.103306666667 3.103306666667 1 1280 1280 1280 1638400
+121	6970515 169996 33223 266723 3.108746666666 28.670919999999 5246 168 1280 6488720 8177772800
+121	20678580 144238 266756 461556 28.673306666667 49.998746666666 4376 168 1280 5413552 6822952576
+vector 122 RSVPTE4.LSR4.ppp[1].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+122	747014 21553 28 32232 0.004851281637 2.998746666666 728 21 596 111685 17764811
+122	1842071 539 32297 33005 3.003306666667 3.083306666667 18 21 160 2709 425529
+122	1873339 60 33041 33092 3.088746666666 3.093306666667 2 156 160 316 49936
+122	1876778 30 33129 33129 3.098746666666 3.098746666666 1 156 156 156 24336
+122	1878838 30 33182 33182 3.103306666667 3.103306666667 1 160 160 160 25600
+122	7140511 164755 33223 266723 3.108746666666 28.670919999999 5246 21 160 811090 127777700
+122	20822818 139866 266756 461556 28.673306666667 49.998746666666 4376 21 160 676694 106608634
+vector 123 RSVPTE4.LSR4.ppp[1].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+123	768567 21553 28 32232 0.004851281637 2.998746666666 728 28 603 116781 19364073
+123	1842610 539 32297 33005 3.003306666667 3.083306666667 18 28 167 2835 464337
+123	1873399 60 33041 33092 3.088746666666 3.093306666667 2 163 167 330 54458
+123	1876808 30 33129 33129 3.098746666666 3.098746666666 1 163 163 163 26569
+123	1878868 30 33182 33182 3.103306666667 3.103306666667 1 167 167 167 27889
+123	7305266 164755 33223 266723 3.108746666666 28.670919999999 5246 28 167 847812 139390014
+123	20962684 139866 266756 461556 28.673306666667 49.998746666666 4376 28 167 707326 116296774
+vector 124 RSVPTE4.LSR4.ppp[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+124	790120 1160 29 30442 0.004851281637 2.801239999998 40 168 12000 39344 176959360
+124	1843149 30 32264 32264 3.001239999998 3.001239999998 1 168 168 168 28224
+124	7470021 4025 34088 266120 3.201239999998 28.601239999998 128 168 168 21504 3612672
+124	21102550 3392 267942 459766 28.801239999998 49.801239999998 106 168 168 17808 2991744
+vector 125 RSVPTE4.LSR4.ppp[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+125	791280 1129 29 30442 0.004851281637 2.801239999998 40 0 0.020093333333 0.024459829893 0.00040903335388843
+125	1843179 28 32264 32264 3.001239999998 3.001239999998 1 0 0 0 0
+125	7474046 3769 34088 266120 3.201239999998 28.601239999998 128 0 0 0 0
+125	21105942 3180 267942 459766 28.801239999998 49.801239999998 106 0 0 0 0
+vector 126 RSVPTE4.LSR4.ppp[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+126	792409 1160 29 30442 0.004851281637 2.801239999998 40 168 12000 39344 176959360
+126	1843207 30 32264 32264 3.001239999998 3.001239999998 1 168 168 168 28224
+126	7477815 4025 34088 266120 3.201239999998 28.601239999998 128 168 168 21504 3612672
+126	21109122 3392 267942 459766 28.801239999998 49.801239999998 106 168 168 17808 2991744
+vector 127 RSVPTE4.LSR4.ppp[2].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+127	793569 1120 29 30442 0.004851281637 2.801239999998 40 21 1500 4918 2764990
+127	1843237 29 32264 32264 3.001239999998 3.001239999998 1 21 21 21 441
+127	7481840 3897 34088 266120 3.201239999998 28.601239999998 128 21 21 2688 56448
+127	21112514 3286 267942 459766 28.801239999998 49.801239999998 106 21 21 2226 46746
+vector 128 RSVPTE4.LSR4.ppp[2].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+128	794689 1120 29 30442 0.004851281637 2.801239999998 40 28 1507 5198 2835802
+128	1843266 29 32264 32264 3.001239999998 3.001239999998 1 28 28 28 784
+128	7485737 3897 34088 266120 3.201239999998 28.601239999998 128 28 28 3584 100352
+128	21115800 3286 267942 459766 28.801239999998 49.801239999998 106 28 28 2968 83104
+vector 129 RSVPTE4.LSR6.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+129	795809 972 38 31957 0.006494463483 2.968026666665 33 168 7648 29072 90411008
+129	7489634 4024 33781 265813 3.168026666665 28.568026666665 128 168 168 21504 3612672
+129	21119086 3424 267635 461281 28.768026666665 49.968026666665 107 168 168 17976 3019968
+vector 130 RSVPTE4.LSR6.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+130	796781 944 38 31957 0.006494463483 2.968026666665 33 0 0.006541578638 0.010539672455 4.7301153721355e-05
+130	7493658 3768 33781 265813 3.168026666665 28.568026666665 128 0 0 0 0
+130	21122510 3210 267635 461281 28.768026666665 49.968026666665 107 0 0 0 0
+vector 131 RSVPTE4.LSR6.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+131	797725 965 38 31957 0.006494463483 2.968026666665 33 168 7648 29072 90411008
+131	7497426 4024 33781 265813 3.168026666665 28.568026666665 128 168 168 21504 3612672
+131	21125720 3424 267635 461281 28.768026666665 49.968026666665 107 168 168 17976 3019968
+vector 132 RSVPTE4.LSR6.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+132	798690 932 38 31957 0.006494463483 2.968026666665 33 21 956 3634 1412672
+132	7501450 3896 33781 265813 3.168026666665 28.568026666665 128 21 21 2688 56448
+132	21129144 3317 267635 461281 28.768026666665 49.968026666665 107 21 21 2247 47187
+vector 133 RSVPTE4.LSR6.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+133	799622 932 38 31957 0.006494463483 2.968026666665 33 28 963 3865 1465165
+133	7505346 3896 33781 265813 3.168026666665 28.568026666665 128 28 28 3584 100352
+133	21132461 3317 267635 461281 28.768026666665 49.968026666665 107 28 28 2996 83888
+vector 134 RSVPTE4.LSR6.ppp[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+134	800554 1228 39 31090 0.006494463483 2.874044561501 42 168 4192 28648 39258816
+134	1843295 30 32912 32912 3.074044561501 3.074044561501 1 168 168 168 28224
+134	7509242 3994 34736 264946 3.274044561501 28.474044561501 127 168 168 21336 3584448
+134	21135778 3424 266768 460414 28.674044561501 49.874044561501 107 168 168 17976 3019968
+vector 135 RSVPTE4.LSR6.ppp[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+135	801782 1185 39 31090 0.006494463483 2.874044561501 42 0 0.00132 0.004160000001 4.4309333352267e-06
+135	1843325 28 32912 32912 3.074044561501 3.074044561501 1 0 0 0 0
+135	7513236 3740 34736 264946 3.274044561501 28.474044561501 127 0 0 0 0
+135	21139202 3210 266768 460414 28.674044561501 49.874044561501 107 0 0 0 0
+vector 136 RSVPTE4.LSR6.ppp[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+136	802967 1228 39 31090 0.006494463483 2.874044561501 42 168 4192 28648 39258816
+136	1843353 30 32912 32912 3.074044561501 3.074044561501 1 168 168 168 28224
+136	7516976 3994 34736 264946 3.274044561501 28.474044561501 127 168 168 21336 3584448
+136	21142412 3424 266768 460414 28.674044561501 49.874044561501 107 168 168 17976 3019968
+vector 137 RSVPTE4.LSR6.ppp[1].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+137	804195 1187 39 31090 0.006494463483 2.874044561501 42 21 524 3581 613419
+137	1843383 29 32912 32912 3.074044561501 3.074044561501 1 21 21 21 441
+137	7520970 3867 34736 264946 3.274044561501 28.474044561501 127 21 21 2667 56007
+137	21145836 3317 266768 460414 28.674044561501 49.874044561501 107 21 21 2247 47187
+vector 138 RSVPTE4.LSR6.ppp[1].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+138	805382 1187 39 31090 0.006494463483 2.874044561501 42 28 531 3875 665611
+138	1843412 29 32912 32912 3.074044561501 3.074044561501 1 28 28 28 784
+138	7524837 3867 34736 264946 3.274044561501 28.474044561501 127 28 28 3556 99568
+138	21149153 3317 266768 460414 28.674044561501 49.874044561501 107 28 28 2996 83888
+vector 139 RSVPTE4.LSR7.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+139	806569 1039 45 31627 0.007526741133 2.930776513444 36 168 11680 34160 164289536
+139	7528704 4147 33451 265483 3.130776513444 28.530776513444 133 168 216 22584 3845952
+139	21152470 3524 267305 460951 28.730776513444 49.930776513444 111 168 216 18840 3206592
+vector 140 RSVPTE4.LSR7.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+140	807608 993 45 31627 0.007526741133 2.930776513444 36 0 0.017584281563 0.019554855775 0.00031137260489218
+140	7532851 3881 33451 265483 3.130776513444 28.530776513444 133 0 0 0 0
+140	21155994 3302 267305 460951 28.730776513444 49.930776513444 111 0 0 0 0
+vector 141 RSVPTE4.LSR7.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+141	808601 1040 45 31627 0.007526741133 2.930776513444 36 168 11680 34160 164289536
+141	7536732 4147 33451 265483 3.130776513444 28.530776513444 133 168 216 22584 3845952
+141	21159296 3524 267305 460951 28.730776513444 49.930776513444 111 168 216 18840 3206592
+vector 142 RSVPTE4.LSR7.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+142	809641 1004 45 31627 0.007526741133 2.930776513444 36 21 1460 4270 2567024
+142	7540879 4014 33451 265483 3.130776513444 28.530776513444 133 21 27 2823 60093
+142	21162820 3413 267305 460951 28.730776513444 49.930776513444 111 21 27 2355 50103
+vector 143 RSVPTE4.LSR7.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+143	810645 1004 45 31627 0.007526741133 2.930776513444 36 28 1467 4522 2628568
+143	7544893 4014 33451 265483 3.130776513444 28.530776513444 133 28 34 3754 106132
+143	21166233 3413 267305 460951 28.730776513444 49.930776513444 111 28 34 3132 88512
+vector 144 RSVPTE4.LSR7.ppp[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+144	811649 7027 46 32168 0.007526741133 2.991626666667 229 168 4192 272104 357079744
+144	1843441 279 32274 32983 3.001626666667 3.081626666667 9 1280 1280 11520 14745600
+144	1873459 31 33070 33070 3.091626666667 3.091626666667 1 1280 1280 1280 1638400
+144	1878898 31 33158 33158 3.101626666667 3.101626666667 1 1280 1280 1280 1638400
+144	7548907 87108 33210 266734 3.107093754323 28.671626666667 2690 168 1280 3298864 4196873472
+144	21169646 73880 266839 461492 28.681626666667 49.991626666667 2243 168 1280 2750456 3499186368
+vector 145 RSVPTE4.LSR7.ppp[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+145	818676 6392 46 32168 0.007526741133 2.991626666667 229 0 0.00132 0.002266666667 2.6385777784089e-06
+145	1843720 252 32274 32983 3.001626666667 3.081626666667 9 0 0 0 0
+145	1873490 28 33070 33070 3.091626666667 3.091626666667 1 0 0 0 0
+145	1878929 28 33158 33158 3.101626666667 3.101626666667 1 0 0 0 0
+145	7636015 79171 33210 266734 3.107093754323 28.671626666667 2690 0 0 0 0
+145	21243526 67262 266839 461492 28.681626666667 49.991626666667 2243 0 0 0 0
+vector 146 RSVPTE4.LSR7.ppp[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+146	825068 7027 46 32168 0.007526741133 2.991626666667 229 168 4192 272104 357079744
+146	1843972 279 32274 32983 3.001626666667 3.081626666667 9 1280 1280 11520 14745600
+146	1873518 31 33070 33070 3.091626666667 3.091626666667 1 1280 1280 1280 1638400
+146	1878957 31 33158 33158 3.101626666667 3.101626666667 1 1280 1280 1280 1638400
+146	7715186 87108 33210 266734 3.107093754323 28.671626666667 2690 168 1280 3298864 4196873472
+146	21310788 73880 266839 461492 28.681626666667 49.991626666667 2243 168 1280 2750456 3499186368
+vector 147 RSVPTE4.LSR7.ppp[1].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+147	832095 6799 46 32168 0.007526741133 2.991626666667 229 21 524 34013 5579371
+147	1844251 270 32274 32983 3.001626666667 3.081626666667 9 160 160 1440 230400
+147	1873549 30 33070 33070 3.091626666667 3.091626666667 1 160 160 160 25600
+147	1878988 30 33158 33158 3.101626666667 3.101626666667 1 160 160 160 25600
+147	7802294 84423 33210 266734 3.107093754323 28.671626666667 2690 21 160 412358 65576148
+147	21384668 71641 266839 461492 28.681626666667 49.991626666667 2243 21 160 343807 54674787
+vector 148 RSVPTE4.LSR7.ppp[1].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+148	838894 6799 46 32168 0.007526741133 2.991626666667 229 28 531 35616 6066774
+148	1844521 270 32274 32983 3.001626666667 3.081626666667 9 167 167 1503 251001
+148	1873579 30 33070 33070 3.091626666667 3.091626666667 1 167 167 167 27889
+148	1879018 30 33158 33158 3.101626666667 3.101626666667 1 167 167 167 27889
+148	7886717 84423 33210 266734 3.107093754323 28.671626666667 2690 28 167 431188 71480970
+148	21456309 71641 266839 461492 28.681626666667 49.991626666667 2243 28 167 359508 59597992
+vector 149 RSVPTE4.LSR1.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+149	845693 7525 52 32178 0.007958745046 2.992173333333 247 168 12000 299216 511271936
+149	1844791 309 32260 32993 3.001137959627 3.082173333333 10 168 1280 11688 14773824
+149	1873609 31 33080 33080 3.092173333333 3.092173333333 1 1280 1280 1280 1638400
+149	1879048 31 33168 33168 3.102173333333 3.102173333333 1 1280 1280 1280 1638400
+149	7971140 87079 33267 266744 3.112173333333 28.672173333333 2690 168 1280 3299264 4197609472
+149	21527950 73824 266849 461502 28.682173333333 49.992173333333 2242 168 1280 2750608 3499746944
+vector 150 RSVPTE4.LSR1.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+150	853218 7592 52 32178 0.007958745046 2.992173333333 243 0 0.121200796742 1.767236761397 0.12589562111232
+150	1845100 292 32260 32993 3.001137959627 3.082173333333 10 0 0.000457959627 0.000457959627 2.0972701996198e-07
+150	1873640 28 33080 33080 3.092173333333 3.092173333333 1 0 0 0 0
+150	1879079 28 33168 33168 3.102173333333 3.102173333333 1 0 0 0 0
+150	8058219 81128 33267 266744 3.112173333333 28.672173333333 2690 0 0.007173333333 0.231572569341 0.00095499408803559
+150	21601774 68840 266849 461502 28.682173333333 49.992173333333 2242 0 0.007173333333 0.18690671013 0.00076475028770034
+vector 151 RSVPTE4.LSR1.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+151	860810 7421 52 32178 0.007958745046 2.992173333333 243 168 12000 296840 509618624
+151	1845392 308 32260 32993 3.001137959627 3.082173333333 10 168 1280 11688 14773824
+151	1873668 31 33080 33080 3.092173333333 3.092173333333 1 1280 1280 1280 1638400
+151	1879107 31 33168 33168 3.102173333333 3.102173333333 1 1280 1280 1280 1638400
+151	8139347 86951 33267 266744 3.112173333333 28.672173333333 2690 168 1280 3299264 4197609472
+151	21670614 73718 266849 461502 28.682173333333 49.992173333333 2242 168 1280 2750608 3499746944
+vector 152 RSVPTE4.LSR1.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+152	868231 7180 52 32178 0.007958745046 2.992173333333 243 21 1500 37105 7962791
+152	1845700 298 32260 32993 3.001137959627 3.082173333333 10 21 160 1461 230841
+152	1873699 30 33080 33080 3.092173333333 3.092173333333 1 160 160 160 25600
+152	1879138 30 33168 33168 3.102173333333 3.102173333333 1 160 160 160 25600
+152	8226298 84266 33267 266744 3.112173333333 28.672173333333 2690 21 160 412408 65587648
+152	21744332 71480 266849 461502 28.682173333333 49.992173333333 2242 21 160 343826 54683546
+vector 153 RSVPTE4.LSR1.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+153	875411 7180 52 32178 0.007958745046 2.992173333333 243 28 1507 38806 8494168
+153	1845998 298 32260 32993 3.001137959627 3.082173333333 10 28 167 1531 251785
+153	1873729 30 33080 33080 3.092173333333 3.092173333333 1 167 167 167 27889
+153	1879168 30 33168 33168 3.102173333333 3.102173333333 1 167 167 167 27889
+153	8310564 84266 33267 266744 3.112173333333 28.672173333333 2690 28 167 431238 71493170
+153	21815812 71480 266849 461502 28.682173333333 49.992173333333 2242 28 167 359520 59606968
+vector 154 RSVPTE4.LSR1.ppp[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+154	882591 21821 53 32182 0.007958745046 2.992173333333 712 168 6496 883288 1145322944
+154	1846296 558 32286 32997 3.002173333333 3.082173333333 18 1248 1280 22752 28763136
+154	1873759 62 33082 33084 3.092173333333 3.092173333333 2 1248 1280 2528 3195904
+154	1879198 62 33170 33172 3.102173333333 3.102173333333 2 1248 1280 2528 3195904
+154	8394830 170039 33269 266748 3.112173333333 28.672173333333 5247 168 1280 6490400 8180147200
+154	21887292 144212 266851 461506 28.682173333333 49.992173333333 4375 168 1280 5411512 6820373696
+vector 155 RSVPTE4.LSR1.ppp[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+155	904412 23519 53 32196 0.007958745046 2.9944 712 0 0.00463129296 1.127872054831 0.0034630381626842
+155	1846854 549 32286 33011 3.002173333333 3.0844 18 0 0.002226666667 0.020040000003 4.462240001336e-05
+155	1873821 61 33082 33098 3.092173333333 3.0944 2 0 0.002226666667 0.002226666667 4.9580444459289e-06
+155	1879260 28 33170 33170 3.102173333333 3.102173333333 1 0 0 0 0
+155	8564869 168878 33188 266746 3.1044 28.672173333333 5247 0 0.002226666667 5.8203454087672 0.012803249167637
+155	22031504 143284 266770 461520 28.6744 49.9944 4376 0 0.002226666667 4.8554423859732 0.010680443635787
+vector 156 RSVPTE4.LSR1.ppp[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+156	927931 20270 53 32196 0.007958745046 2.9944 712 168 6496 883288 1145322944
+156	1847403 486 32286 33011 3.002173333333 3.0844 18 1248 1280 22752 28763136
+156	1873882 54 33082 33098 3.092173333333 3.0944 2 1248 1280 2528 3195904
+156	1879288 31 33170 33170 3.102173333333 3.102173333333 1 1280 1280 1280 1638400
+156	8733747 149581 33188 266746 3.1044 28.672173333333 5247 168 1280 6490400 8180147200
+156	22174788 127181 266770 461520 28.6744 49.9944 4376 168 1280 5412760 6821931200
+vector 157 RSVPTE4.LSR1.ppp[1].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+157	948201 19559 53 32196 0.007958745046 2.9944 712 21 812 110411 17895671
+157	1847889 468 32286 33011 3.002173333333 3.0844 18 156 160 2844 449424
+157	1873936 52 33082 33098 3.092173333333 3.0944 2 156 160 316 49936
+157	1879319 30 33170 33170 3.102173333333 3.102173333333 1 160 160 160 25600
+157	8883328 144339 33188 266746 3.1044 28.672173333333 5247 21 160 811300 127814800
+157	22301969 122809 266770 461520 28.6744 49.9944 4376 21 160 676595 106592675
+vector 158 RSVPTE4.LSR1.ppp[1].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+158	967760 19559 53 32196 0.007958745046 2.9944 712 28 819 115395 19476313
+158	1848357 468 32286 33011 3.002173333333 3.0844 18 163 167 2970 490122
+158	1873988 52 33082 33098 3.092173333333 3.0944 2 163 167 330 54458
+158	1879349 30 33170 33170 3.102173333333 3.102173333333 1 167 167 167 27889
+158	9027667 144339 33188 266746 3.1044 28.672173333333 5247 28 167 848029 139430103
+158	22424778 122809 266770 461520 28.6744 49.9944 4376 28 167 707227 116279429
+vector 159 RSVPTE4.host1.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+159	987319 5866 61 32143 0.01 2.99 299 128 128 38272 4898816
+159	1848825 177 32236 32954 3 3.08 9 128 128 1152 147456
+159	1874040 20 33045 33045 3.09 3.09 1 128 128 128 16384
+159	1879379 19 33133 33133 3.1 3.1 1 128 128 128 16384
+159	9172006 54528 33227 266704 3.11 28.67 2557 128 128 327296 41893888
+159	22547587 46668 266810 461560 28.68 50 2133 128 128 273024 34947072
+vector 160 RSVPTE4.host2.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+160	993185 5866 62 32144 0.01 2.99 299 128 128 38272 4898816
+160	1849002 177 32237 32955 3 3.08 9 128 128 1152 147456
+160	1874060 20 33046 33046 3.09 3.09 1 128 128 128 16384
+160	1879398 19 33134 33134 3.1 3.1 1 128 128 128 16384
+160	9226534 54528 33228 266705 3.11 28.67 2557 128 128 327296 41893888
+160	22594255 46668 266811 461561 28.68 50 2133 128 128 273024 34947072
+vector 161 RSVPTE4.host5.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+161	999051 5866 63 32145 0.01 2.99 299 128 128 38272 4898816
+161	1849179 177 32238 32956 3 3.08 9 128 128 1152 147456
+161	1874080 20 33047 33047 3.09 3.09 1 128 128 128 16384
+161	1879417 19 33135 33135 3.1 3.1 1 128 128 128 16384
+161	9281062 54528 33229 266706 3.11 28.67 2557 128 128 327296 41893888
+161	22640923 46668 266812 461562 28.68 50 2133 128 128 273024 34947072
+vector 162 RSVPTE4.host1.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+162	1004917 5866 65 32146 0.01 2.99 299 136 136 40664 5530304
+162	1849356 177 32239 32957 3 3.08 9 136 136 1224 166464
+162	1874100 20 33048 33048 3.09 3.09 1 136 136 136 18496
+162	1879436 19 33136 33136 3.1 3.1 1 136 136 136 18496
+162	9335590 54528 33230 266707 3.11 28.67 2557 136 136 347752 47294272
+162	22687591 46668 266813 461563 28.68 50 2133 136 136 290088 39451968
+vector 163 RSVPTE4.host2.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+163	1010783 5866 67 32147 0.01 2.99 299 136 136 40664 5530304
+163	1849533 177 32240 32958 3 3.08 9 136 136 1224 166464
+163	1874120 20 33049 33049 3.09 3.09 1 136 136 136 18496
+163	1879455 19 33137 33137 3.1 3.1 1 136 136 136 18496
+163	9390118 54528 33231 266708 3.11 28.67 2557 136 136 347752 47294272
+163	22734259 46668 266814 461564 28.68 50 2133 136 136 290088 39451968
+vector 164 RSVPTE4.host5.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+164	1016649 5866 69 32148 0.01 2.99 299 136 136 40664 5530304
+164	1849710 177 32241 32959 3 3.08 9 136 136 1224 166464
+164	1874140 20 33050 33050 3.09 3.09 1 136 136 136 18496
+164	1879474 19 33138 33138 3.1 3.1 1 136 136 136 18496
+164	9444646 54528 33232 266709 3.11 28.67 2557 136 136 347752 47294272
+164	22780927 46668 266815 461565 28.68 50 2133 136 136 290088 39451968
+vector 165 RSVPTE4.host1.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+165	1022515 6165 73 32152 0.01 2.99 299 1248 1248 373152 465693696
+165	1849887 186 32245 32963 3 3.08 9 1248 1248 11232 14017536
+165	1874160 21 33054 33054 3.09 3.09 1 1248 1248 1248 1557504
+165	1879493 20 33142 33142 3.1 3.1 1 1248 1248 1248 1557504
+165	9499174 57085 33236 266713 3.11 28.67 2557 1248 1248 3191136 3982537728
+165	22827595 48801 266819 461569 28.68 50 2133 1248 1248 2661984 3322156032
+vector 166 RSVPTE4.host1.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+166	1028680 5268 73 32152 0.01 2.99 299 0 0 0 0
+166	1850073 159 32245 32963 3 3.08 9 0 0 0 0
+166	1874181 18 33054 33054 3.09 3.09 1 0 0 0 0
+166	1879513 17 33142 33142 3.1 3.1 1 0 0 0 0
+166	9556259 49414 33236 266713 3.11 28.67 2557 0 0 0 0
+166	22876396 42402 266819 461569 28.68 50 2133 0 0 0 0
+vector 167 RSVPTE4.host1.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+167	1033948 6165 73 32152 0.01 2.99 299 1248 1248 373152 465693696
+167	1850232 186 32245 32963 3 3.08 9 1248 1248 11232 14017536
+167	1874199 21 33054 33054 3.09 3.09 1 1248 1248 1248 1557504
+167	1879530 20 33142 33142 3.1 3.1 1 1248 1248 1248 1557504
+167	9605673 57085 33236 266713 3.11 28.67 2557 1248 1248 3191136 3982537728
+167	22918798 48801 266819 461569 28.68 50 2133 1248 1248 2661984 3322156032
+vector 168 RSVPTE4.host1.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+168	1040113 5866 73 32152 0.01 2.99 299 156 156 46644 7276464
+168	1850418 177 32245 32963 3 3.08 9 156 156 1404 219024
+168	1874220 20 33054 33054 3.09 3.09 1 156 156 156 24336
+168	1879550 19 33142 33142 3.1 3.1 1 156 156 156 24336
+168	9662758 54528 33236 266713 3.11 28.67 2557 156 156 398892 62227152
+168	22967599 46668 266819 461569 28.68 50 2133 156 156 332748 51908688
+vector 169 RSVPTE4.host1.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+169	1045979 5866 73 32152 0.01 2.99 299 163 163 48737 7944131
+169	1850595 177 32245 32963 3 3.08 9 163 163 1467 239121
+169	1874240 20 33054 33054 3.09 3.09 1 163 163 163 26569
+169	1879569 19 33142 33142 3.1 3.1 1 163 163 163 26569
+169	9717286 54528 33236 266713 3.11 28.67 2557 163 163 416791 67936933
+169	23014267 46668 266819 461569 28.68 50 2133 163 163 347679 56671677
+vector 170 RSVPTE4.host2.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+170	1051845 6165 74 32153 0.01 2.99 299 1248 1248 373152 465693696
+170	1850772 186 32246 32964 3 3.08 9 1248 1248 11232 14017536
+170	1874260 21 33055 33055 3.09 3.09 1 1248 1248 1248 1557504
+170	1879588 20 33143 33143 3.1 3.1 1 1248 1248 1248 1557504
+170	9771814 57085 33237 266714 3.11 28.67 2557 1248 1248 3191136 3982537728
+170	23060935 48801 266820 461570 28.68 50 2133 1248 1248 2661984 3322156032
+vector 171 RSVPTE4.host2.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+171	1058010 5268 74 32153 0.01 2.99 299 0 0 0 0
+171	1850958 159 32246 32964 3 3.08 9 0 0 0 0
+171	1874281 18 33055 33055 3.09 3.09 1 0 0 0 0
+171	1879608 17 33143 33143 3.1 3.1 1 0 0 0 0
+171	9828899 49414 33237 266714 3.11 28.67 2557 0 0 0 0
+171	23109736 42402 266820 461570 28.68 50 2133 0 0 0 0
+vector 172 RSVPTE4.host2.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+172	1063278 6165 74 32153 0.01 2.99 299 1248 1248 373152 465693696
+172	1851117 186 32246 32964 3 3.08 9 1248 1248 11232 14017536
+172	1874299 21 33055 33055 3.09 3.09 1 1248 1248 1248 1557504
+172	1879625 20 33143 33143 3.1 3.1 1 1248 1248 1248 1557504
+172	9878313 57085 33237 266714 3.11 28.67 2557 1248 1248 3191136 3982537728
+172	23152138 48801 266820 461570 28.68 50 2133 1248 1248 2661984 3322156032
+vector 173 RSVPTE4.host2.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+173	1069443 5866 74 32153 0.01 2.99 299 156 156 46644 7276464
+173	1851303 177 32246 32964 3 3.08 9 156 156 1404 219024
+173	1874320 20 33055 33055 3.09 3.09 1 156 156 156 24336
+173	1879645 19 33143 33143 3.1 3.1 1 156 156 156 24336
+173	9935398 54528 33237 266714 3.11 28.67 2557 156 156 398892 62227152
+173	23200939 46668 266820 461570 28.68 50 2133 156 156 332748 51908688
+vector 174 RSVPTE4.host2.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+174	1075309 5866 74 32153 0.01 2.99 299 163 163 48737 7944131
+174	1851480 177 32246 32964 3 3.08 9 163 163 1467 239121
+174	1874340 20 33055 33055 3.09 3.09 1 163 163 163 26569
+174	1879664 19 33143 33143 3.1 3.1 1 163 163 163 26569
+174	9989926 54528 33237 266714 3.11 28.67 2557 163 163 416791 67936933
+174	23247607 46668 266820 461570 28.68 50 2133 163 163 347679 56671677
+vector 175 RSVPTE4.host5.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+175	1081175 6165 75 32154 0.01 2.99 299 1248 1248 373152 465693696
+175	1851657 186 32247 32965 3 3.08 9 1248 1248 11232 14017536
+175	1874360 21 33056 33056 3.09 3.09 1 1248 1248 1248 1557504
+175	1879683 20 33144 33144 3.1 3.1 1 1248 1248 1248 1557504
+175	10044454 57085 33238 266715 3.11 28.67 2557 1248 1248 3191136 3982537728
+175	23294275 48801 266821 461571 28.68 50 2133 1248 1248 2661984 3322156032
+vector 176 RSVPTE4.host5.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+176	1087340 5268 75 32154 0.01 2.99 299 0 0 0 0
+176	1851843 159 32247 32965 3 3.08 9 0 0 0 0
+176	1874381 18 33056 33056 3.09 3.09 1 0 0 0 0
+176	1879703 17 33144 33144 3.1 3.1 1 0 0 0 0
+176	10101539 49414 33238 266715 3.11 28.67 2557 0 0 0 0
+176	23343076 42402 266821 461571 28.68 50 2133 0 0 0 0
+vector 177 RSVPTE4.host5.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+177	1092608 6165 75 32154 0.01 2.99 299 1248 1248 373152 465693696
+177	1852002 186 32247 32965 3 3.08 9 1248 1248 11232 14017536
+177	1874399 21 33056 33056 3.09 3.09 1 1248 1248 1248 1557504
+177	1879720 20 33144 33144 3.1 3.1 1 1248 1248 1248 1557504
+177	10150953 57085 33238 266715 3.11 28.67 2557 1248 1248 3191136 3982537728
+177	23385478 48801 266821 461571 28.68 50 2133 1248 1248 2661984 3322156032
+vector 178 RSVPTE4.host5.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+178	1098773 5866 75 32154 0.01 2.99 299 156 156 46644 7276464
+178	1852188 177 32247 32965 3 3.08 9 156 156 1404 219024
+178	1874420 20 33056 33056 3.09 3.09 1 156 156 156 24336
+178	1879740 19 33144 33144 3.1 3.1 1 156 156 156 24336
+178	10208038 54528 33238 266715 3.11 28.67 2557 156 156 398892 62227152
+178	23434279 46668 266821 461571 28.68 50 2133 156 156 332748 51908688
+vector 179 RSVPTE4.host5.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+179	1104639 5866 75 32154 0.01 2.99 299 163 163 48737 7944131
+179	1852365 177 32247 32965 3 3.08 9 163 163 1467 239121
+179	1874440 20 33056 33056 3.09 3.09 1 163 163 163 26569
+179	1879759 19 33144 33144 3.1 3.1 1 163 163 163 26569
+179	10262566 54528 33238 266715 3.11 28.67 2557 163 163 416791 67936933
+179	23480947 46668 266821 461571 28.68 50 2133 163 163 347679 56671677
+vector 180 RSVPTE4.LSR4.ppp[1].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+180	1110505 847 76 31149 0.010743846691 2.881378494494 30 28 603 2775 682719
+180	1852542 29 32971 32971 3.081378494494 3.081378494494 1 28 28 28 784
+180	10317094 3980 34795 265005 3.281378494494 28.481378494494 132 28 33 3721 105013
+180	23527615 3409 266827 460473 28.681378494494 49.881378494494 111 28 33 3128 88244
+vector 181 RSVPTE4.LSR4.ppp[1].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+181	1111352 847 76 31149 0.010743846691 2.881378494494 30 21 596 2565 645339
+181	1852571 29 32971 32971 3.081378494494 3.081378494494 1 21 21 21 441
+181	10321074 3980 34795 265005 3.281378494494 28.481378494494 132 21 26 2797 59387
+181	23531024 3409 266827 460473 28.681378494494 49.881378494494 111 21 26 2351 49891
+vector 182 RSVPTE4.LSR2.ppp[1].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+182	1112199 1170 92 31522 0.013091281637 2.92047717271 42 28 1507 5404 2939982
+182	10325054 3921 33346 265378 3.12047717271 28.52047717271 133 28 34 3754 106132
+182	23534433 3334 267200 460846 28.72047717271 49.92047717271 111 28 34 3132 88512
+vector 183 RSVPTE4.LSR2.ppp[1].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+183	1113369 1170 92 31522 0.013091281637 2.92047717271 42 21 1500 5110 2866384
+183	10328975 3921 33346 265378 3.12047717271 28.52047717271 133 21 27 2823 60093
+183	23537767 3334 267200 460846 28.72047717271 49.92047717271 111 21 27 2355 50103
+vector 184 RSVPTE4.LSR5.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+184	1114539 21498 93 32203 0.013091281637 2.995919999999 726 28 603 116451 19309615
+184	1852600 569 32248 33017 3.000533333334 3.085919999999 19 28 167 2998 490906
+184	1874460 30 33057 33057 3.090533333334 3.090533333334 1 167 167 167 27889
+184	1876838 30 33100 33100 3.095919999999 3.095919999999 1 163 163 163 26569
+184	1879778 30 33145 33145 3.100533333334 3.100533333334 1 167 167 167 27889
+184	10332896 164795 33190 266716 3.105919999999 28.670533333334 5246 28 167 847951 139417119
+184	23541101 139897 266773 461527 28.675919999999 49.995919999999 4376 28 167 707187 116269669
+vector 185 RSVPTE4.LSR5.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+185	1136037 21498 93 32203 0.013091281637 2.995919999999 726 21 596 111369 17714875
+185	1853169 569 32248 33017 3.000533333334 3.085919999999 19 21 160 2865 449865
+185	1874490 30 33057 33057 3.090533333334 3.090533333334 1 160 160 160 25600
+185	1876868 30 33100 33100 3.095919999999 3.095919999999 1 156 156 156 24336
+185	1879808 30 33145 33145 3.100533333334 3.100533333334 1 160 160 160 25600
+185	10497691 164795 33190 266716 3.105919999999 28.670533333334 5246 21 160 811229 127802859
+185	23680998 139897 266773 461527 28.675919999999 49.995919999999 4376 21 160 676555 106583475
+vector 186 RSVPTE4.LSR3.ppp[1].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+186	1157535 1124 94 30497 0.013091281637 2.806613333331 40 28 1507 5198 2835802
+186	1853738 29 32319 32319 3.006613333331 3.006613333331 1 28 28 28 784
+186	10662486 3897 34143 266175 3.206613333331 28.606613333331 128 28 28 3584 100352
+186	23820895 3286 267997 459821 28.806613333331 49.806613333331 106 28 28 2968 83104
+vector 187 RSVPTE4.LSR3.ppp[1].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+187	1158659 1124 94 30497 0.013091281637 2.806613333331 40 21 1500 4918 2764990
+187	1853767 29 32319 32319 3.006613333331 3.006613333331 1 21 21 21 441
+187	10666383 3897 34143 266175 3.206613333331 28.606613333331 128 21 21 2688 56448
+187	23824181 3286 267997 459821 28.806613333331 49.806613333331 106 21 21 2226 46746
+vector 188 RSVPTE4.LSR2.ppp[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+188	1159783 5659 122 32215 0.013091281637 2.99608 220 168 3616 263856 347576320
+188	1853796 223 32317 33029 3.00608 3.08608 9 1280 1280 11520 14745600
+188	1876898 24 33112 33112 3.09608 3.09608 1 1280 1280 1280 1638400
+188	10670280 70185 33202 266688 3.10608 28.66608 2690 168 1280 3299064 4197233472
+188	23827467 59785 266789 461539 28.67608 49.99608 2244 168 1280 2751896 3501112768
+vector 189 RSVPTE4.LSR2.ppp[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+189	1165442 5090 122 32215 0.013091281637 2.99608 220 0 0.006556818154 0.010305391004 4.676007285677e-05
+189	1854019 196 32317 33029 3.00608 3.08608 9 0 0 0 0
+189	1876922 21 33112 33112 3.09608 3.09608 1 0 0 0 0
+189	10740465 62248 33202 266688 3.10608 28.66608 2690 0 0 0 0
+189	23887252 53164 266789 461539 28.67608 49.99608 2244 0 0 0 0
+vector 190 RSVPTE4.LSR2.ppp[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+190	1170532 5666 122 32215 0.013091281637 2.99608 220 168 3616 263856 347576320
+190	1854215 223 32317 33029 3.00608 3.08608 9 1280 1280 11520 14745600
+190	1876943 24 33112 33112 3.09608 3.09608 1 1280 1280 1280 1638400
+190	10802713 70185 33202 266688 3.10608 28.66608 2690 168 1280 3299064 4197233472
+190	23940416 59785 266789 461539 28.67608 49.99608 2244 168 1280 2751896 3501112768
+vector 191 RSVPTE4.LSR2.ppp[1].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+191	1176198 5447 122 32215 0.013091281637 2.99608 220 21 452 32982 5430880
+191	1854438 214 32317 33029 3.00608 3.08608 9 160 160 1440 230400
+191	1876967 23 33112 33112 3.09608 3.09608 1 160 160 160 25600
+191	10872898 67500 33202 266688 3.10608 28.66608 2690 21 160 412383 65581773
+191	24000201 57545 266789 461539 28.67608 49.99608 2244 21 160 343987 54704887
+vector 192 RSVPTE4.LSR2.ppp[1].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+192	1181645 5447 122 32215 0.013091281637 2.99608 220 28 459 34522 5903408
+192	1854652 214 32317 33029 3.00608 3.08608 9 167 167 1503 251001
+192	1876990 23 33112 33112 3.09608 3.09608 1 167 167 167 27889
+192	10940398 67500 33202 266688 3.10608 28.66608 2690 28 167 431213 71486945
+192	24057746 57545 266789 461539 28.67608 49.99608 2244 28 167 359695 59630661
+vector 193 RSVPTE4.LSR2.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+193	1187092 1575 123 32219 0.013091281637 2.99620541103 55 168 12000 52240 202015872
+193	11007898 4054 34043 266075 3.19620541103 28.59620541103 133 168 216 22584 3845952
+193	24115291 3445 267897 461543 28.79620541103 49.99620541103 111 168 216 18840 3206592
+vector 194 RSVPTE4.LSR2.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+194	1188667 1552 123 32219 0.013091281637 2.99620541103 48 0 0.150665869924 1.58102807402 0.16367339273346
+194	11011952 3788 34043 266075 3.19620541103 28.59620541103 133 0 0 0 0
+194	24118736 3223 267897 461543 28.79620541103 49.99620541103 111 0 0 0 0
+vector 195 RSVPTE4.LSR2.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+195	1190219 1362 123 32219 0.013091281637 2.99620541103 48 168 12000 47656 198737472
+195	11015740 4054 34043 266075 3.19620541103 28.59620541103 133 168 216 22584 3845952
+195	24121959 3445 267897 461543 28.79620541103 49.99620541103 111 168 216 18840 3206592
+vector 196 RSVPTE4.LSR2.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+196	1191581 1314 123 32219 0.013091281637 2.99620541103 48 21 1500 5957 3105273
+196	11019794 3921 34043 266075 3.19620541103 28.59620541103 133 21 27 2823 60093
+196	24125404 3334 267897 461543 28.79620541103 49.99620541103 111 21 27 2355 50103
+vector 197 RSVPTE4.LSR2.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+197	1192895 1314 123 32219 0.013091281637 2.99620541103 48 28 1507 6293 3191023
+197	11023715 3921 34043 266075 3.19620541103 28.59620541103 133 28 34 3754 106132
+197	24128738 3334 267897 461543 28.79620541103 49.99620541103 111 28 34 3132 88512
+vector 198 RSVPTE4.LSR2.ppp[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+198	1194209 1348 124 31865 0.013091281637 2.957440227996 47 168 4768 39856 75954176
+198	11027636 4024 33689 265721 3.157440227996 28.557440227996 128 168 168 21504 3612672
+198	24132072 3424 267543 461189 28.757440227996 49.957440227996 107 168 168 17976 3019968
+vector 199 RSVPTE4.LSR2.ppp[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+199	1195557 1355 124 31865 0.013091281637 2.957440227996 47 0 0.01185219543 0.025590154697 0.00020742608227411
+199	11031660 3768 33689 265721 3.157440227996 28.557440227996 128 0 0 0 0
+199	24135496 3210 267543 461189 28.757440227996 49.957440227996 107 0 0 0 0
+vector 200 RSVPTE4.LSR2.ppp[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+200	1196912 1355 124 31865 0.013091281637 2.957440227996 47 168 4768 39856 75954176
+200	11035428 4024 33689 265721 3.157440227996 28.557440227996 128 168 168 21504 3612672
+200	24138706 3424 267543 461189 28.757440227996 49.957440227996 107 168 168 17976 3019968
+vector 201 RSVPTE4.LSR2.ppp[2].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+201	1198267 1309 124 31865 0.013091281637 2.957440227996 47 21 596 4982 1186784
+201	11039452 3896 33689 265721 3.157440227996 28.557440227996 128 21 21 2688 56448
+201	24142130 3317 267543 461189 28.757440227996 49.957440227996 107 21 21 2247 47187
+vector 202 RSVPTE4.LSR2.ppp[2].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+202	1199576 1309 124 31865 0.013091281637 2.957440227996 47 28 603 5311 1258835
+202	11043348 3896 33689 265721 3.157440227996 28.557440227996 128 28 28 3584 100352
+202	24145447 3317 267543 461189 28.757440227996 49.957440227996 107 28 28 2996 83888
+vector 203 RSVPTE4.LSR3.ppp[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+203	1200885 16021 128 32200 0.013091281637 2.995401285279 525 168 6496 642840 843582912
+203	1854866 279 32269 32979 3.001573333333 3.081573333333 9 1248 1248 11232 14017536
+203	1874520 31 33066 33066 3.091573333333 3.091573333333 1 1248 1248 1248 1557504
+203	1879838 31 33154 33154 3.101573333333 3.101573333333 1 1248 1248 1248 1557504
+203	11047244 86984 33253 266730 3.111573333333 28.671573333333 2685 168 1248 3212640 3986150400
+203	24148764 73780 266835 461524 28.681573333333 49.995401285279 2239 168 1248 2678712 3323618496
+vector 204 RSVPTE4.LSR3.ppp[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+204	1216906 14724 128 32200 0.013091281637 2.995401285279 525 0 0.015484540504 0.041806888088 0.00030684825160669
+204	1855145 252 32269 32979 3.001573333333 3.081573333333 9 0 0 0 0
+204	1874551 28 33066 33066 3.091573333333 3.091573333333 1 0 0 0 0
+204	1879869 28 33154 33154 3.101573333333 3.101573333333 1 0 0 0 0
+204	11134228 79057 33253 266730 3.111573333333 28.671573333333 2685 0 0 0 0
+204	24222544 67170 266835 461524 28.681573333333 49.995401285279 2239 0 0 0 0
+vector 205 RSVPTE4.LSR3.ppp[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+205	1231630 16028 128 32200 0.013091281637 2.995401285279 525 168 6496 642840 843582912
+205	1855397 279 32269 32979 3.001573333333 3.081573333333 9 1248 1248 11232 14017536
+205	1874579 31 33066 33066 3.091573333333 3.091573333333 1 1248 1248 1248 1557504
+205	1879897 31 33154 33154 3.101573333333 3.101573333333 1 1248 1248 1248 1557504
+205	11213285 86984 33253 266730 3.111573333333 28.671573333333 2685 168 1248 3212640 3986150400
+205	24289714 73780 266835 461524 28.681573333333 49.995401285279 2239 168 1248 2678712 3323618496
+vector 206 RSVPTE4.LSR3.ppp[1].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+206	1247658 15503 128 32200 0.013091281637 2.995401285279 525 21 812 80355 13180983
+206	1855676 270 32269 32979 3.001573333333 3.081573333333 9 156 156 1404 219024
+206	1874610 30 33066 33066 3.091573333333 3.091573333333 1 156 156 156 24336
+206	1879928 30 33154 33154 3.101573333333 3.101573333333 1 156 156 156 24336
+206	11300269 84299 33253 266730 3.111573333333 28.671573333333 2685 21 156 401580 62283600
+206	24363494 71541 266835 461524 28.681573333333 49.995401285279 2239 21 156 334839 51931539
+vector 207 RSVPTE4.LSR3.ppp[1].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+207	1263161 15503 128 32200 0.013091281637 2.995401285279 525 28 819 84030 14331678
+207	1855946 270 32269 32979 3.001573333333 3.081573333333 9 163 163 1467 239121
+207	1874640 30 33066 33066 3.091573333333 3.091573333333 1 163 163 163 26569
+207	1879958 30 33154 33154 3.101573333333 3.101573333333 1 163 163 163 26569
+207	11384568 84299 33253 266730 3.111573333333 28.671573333333 2685 28 163 420375 68037285
+207	24435035 71541 266835 461524 28.681573333333 49.995401285279 2239 28 163 350512 56728996
+vector 208 RSVPTE4.LSR3.ppp[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+208	1278664 1368 129 31418 0.013091281637 2.910209697334 47 168 6496 42832 117680128
+208	11468867 4182 33242 265274 3.110209697334 28.510209697334 133 168 216 22584 3845952
+208	24506576 3552 267096 460742 28.710209697334 49.910209697334 111 168 216 18840 3206592
+vector 209 RSVPTE4.LSR3.ppp[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+209	1280032 1357 129 31418 0.013091281637 2.910209697334 47 0 0.021334898355 0.085630933591 0.0014196074173911
+209	11473049 3916 33242 265274 3.110209697334 28.510209697334 133 0 0 0 0
+209	24510128 3330 267096 460742 28.710209697334 49.910209697334 111 0 0 0 0
+vector 210 RSVPTE4.LSR3.ppp[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+210	1281389 1354 129 31418 0.013091281637 2.910209697334 47 168 6496 42832 117680128
+210	11476965 4182 33242 265274 3.110209697334 28.510209697334 133 168 216 22584 3845952
+210	24513458 3552 267096 460742 28.710209697334 49.910209697334 111 168 216 18840 3206592
+vector 211 RSVPTE4.LSR3.ppp[0].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+211	1282743 1307 129 31418 0.013091281637 2.910209697334 47 21 812 5354 1838752
+211	11481147 4049 33242 265274 3.110209697334 28.510209697334 133 21 27 2823 60093
+211	24517010 3441 267096 460742 28.710209697334 49.910209697334 111 21 27 2355 50103
+vector 212 RSVPTE4.LSR3.ppp[0].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+212	1284050 1307 129 31418 0.013091281637 2.910209697334 47 28 819 5683 1916011
+212	11485196 4049 33242 265274 3.110209697334 28.510209697334 133 28 34 3754 106132
+212	24520451 3441 267096 460742 28.710209697334 49.910209697334 111 28 34 3132 88512
+vector 213 RSVPTE4.LSR3.ppp[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+213	1285357 5868 130 32235 0.013091281637 2.9994 242 168 7648 295472 460685312
+213	1856216 184 32336 32953 3.0094 3.0794 8 1280 1280 10240 13107200
+213	1874670 23 33044 33044 3.0894 3.0894 1 1280 1280 1280 1638400
+213	1877013 23 33132 33132 3.0994 3.0994 1 1280 1280 1280 1638400
+213	11489245 66685 33226 266703 3.1094 28.6694 2690 168 1280 3299064 4197233472
+213	24523892 56877 266809 461559 28.6794 49.9994 2244 168 1280 2751896 3501112768
+vector 214 RSVPTE4.LSR3.ppp[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+214	1291225 5306 130 32235 0.013091281637 2.9994 242 0 0.026134898355 0.088764266922 0.0016943149256401
+214	1856400 160 32336 32953 3.0094 3.0794 8 0 0 0 0
+214	1874693 20 33044 33044 3.0894 3.0894 1 0 0 0 0
+214	1877036 20 33132 33132 3.0994 3.0994 1 0 0 0 0
+214	11555930 58748 33226 266703 3.1094 28.6694 2690 0 0 0 0
+214	24580769 50256 266809 461559 28.6794 49.9994 2244 0 0 0 0
+vector 215 RSVPTE4.LSR3.ppp[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+215	1296531 5868 130 32235 0.013091281637 2.9994 242 168 7648 295472 460685312
+215	1856560 184 32336 32953 3.0094 3.0794 8 1280 1280 10240 13107200
+215	1874713 23 33044 33044 3.0894 3.0894 1 1280 1280 1280 1638400
+215	1877056 23 33132 33132 3.0994 3.0994 1 1280 1280 1280 1638400
+215	11614678 66685 33226 266703 3.1094 28.6694 2690 168 1280 3299064 4197233472
+215	24631025 56877 266809 461559 28.6794 49.9994 2244 168 1280 2751896 3501112768
+vector 216 RSVPTE4.LSR3.ppp[2].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+216	1302399 5627 130 32235 0.013091281637 2.9994 242 21 956 36934 7198208
+216	1856744 176 32336 32953 3.0094 3.0794 8 160 160 1280 204800
+216	1874736 22 33044 33044 3.0894 3.0894 1 160 160 160 25600
+216	1877079 22 33132 33132 3.0994 3.0994 1 160 160 160 25600
+216	11681363 64000 33226 266703 3.1094 28.6694 2690 21 160 412383 65581773
+216	24687902 54637 266809 461559 28.6794 49.9994 2244 21 160 343987 54704887
+vector 217 RSVPTE4.LSR3.ppp[2].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+217	1308026 5627 130 32235 0.013091281637 2.9994 242 28 963 38628 7727142
+217	1856920 176 32336 32953 3.0094 3.0794 8 167 167 1336 223112
+217	1874758 22 33044 33044 3.0894 3.0894 1 167 167 167 27889
+217	1877101 22 33132 33132 3.0994 3.0994 1 167 167 167 27889
+217	11745363 64000 33226 266703 3.1094 28.6694 2690 28 167 431213 71486945
+217	24742539 54637 266809 461559 28.6794 49.9994 2244 28 167 359695 59630661
+vector 218 RSVPTE4.LSR6.ppp[1].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+218	1313653 1328 132 31085 0.015743846691 2.874044561501 47 28 747 5250 1312008
+218	1857096 29 32907 32907 3.074044561501 3.074044561501 1 28 28 28 784
+218	11809363 3867 34731 264941 3.274044561501 28.474044561501 127 28 28 3556 99568
+218	24797176 3317 266763 460409 28.674044561501 49.874044561501 107 28 28 2996 83888
+vector 219 RSVPTE4.LSR6.ppp[1].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+219	1314981 1328 132 31085 0.015743846691 2.874044561501 47 21 740 4921 1240811
+219	1857125 29 32907 32907 3.074044561501 3.074044561501 1 21 21 21 441
+219	11813230 3867 34731 264941 3.274044561501 28.474044561501 127 21 21 2667 56007
+219	24800493 3317 266763 460409 28.674044561501 49.874044561501 107 21 21 2247 47187
+vector 220 RSVPTE4.LSR7.ppp[1].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+220	1316309 1350 133 31381 0.015743846691 2.907093754323 48 28 891 5493 1557681
+220	11817097 4132 33205 265237 3.107093754323 28.507093754323 138 28 33 3914 111242
+220	24803810 3509 267059 460705 28.707093754323 49.907093754323 115 28 33 3260 92600
+vector 221 RSVPTE4.LSR7.ppp[1].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+221	1317659 1350 133 31381 0.015743846691 2.907093754323 48 21 884 5157 1483131
+221	11821229 4132 33205 265237 3.107093754323 28.507093754323 138 21 26 2948 63208
+221	24807319 3509 267059 460705 28.707093754323 49.907093754323 115 21 26 2455 52595
+vector 222 RSVPTE4.LSR3.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+222	1319009 19545 159 32233 0.018118745046 2.9994 711 28 819 115232 19449744
+222	1857154 446 32265 32975 3.001573333333 3.081573333333 17 163 167 2803 462233
+222	1874780 52 33042 33062 3.0894 3.091573333333 2 163 167 330 54458
+222	1877123 22 33130 33130 3.0994 3.0994 1 167 167 167 27889
+222	1879988 30 33150 33150 3.101573333333 3.101573333333 1 163 163 163 26569
+222	11825361 144403 33224 266726 3.1094 28.671573333333 5247 28 167 848029 139430103
+222	24810828 122861 266807 461557 28.6794 49.9994 4376 28 167 707231 116280749
+vector 223 RSVPTE4.LSR3.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+223	1338554 19545 159 32233 0.018118745046 2.9994 711 21 812 110255 17871335
+223	1857600 446 32265 32975 3.001573333333 3.081573333333 17 156 160 2684 423824
+223	1874832 52 33042 33062 3.0894 3.091573333333 2 156 160 316 49936
+223	1877145 22 33130 33130 3.0994 3.0994 1 160 160 160 25600
+223	1880018 30 33150 33150 3.101573333333 3.101573333333 1 156 156 156 24336
+223	11969764 144403 33224 266726 3.1094 28.671573333333 5247 21 160 811300 127814800
+223	24933689 122861 266807 461557 28.6794 49.9994 4376 21 160 676599 106593939
+vector 224 RSVPTE4.LSR2.ppp[2].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+224	1358099 925 182 32048 0.018774463483 2.978399999998 33 28 963 3865 1465165
+224	12114167 3896 33872 265904 3.178399999998 28.578399999998 128 28 28 3584 100352
+224	25056550 3317 267726 461372 28.778399999998 49.978399999998 107 28 28 2996 83888
+vector 225 RSVPTE4.LSR2.ppp[2].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+225	1359024 925 182 32048 0.018774463483 2.978399999998 33 21 956 3634 1412672
+225	12118063 3896 33872 265904 3.178399999998 28.578399999998 128 21 21 2688 56448
+225	25059867 3317 267726 461372 28.778399999998 49.978399999998 107 21 21 2247 47187
+vector 226 RSVPTE4.LSR5.ppp[3].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+226	1359949 1190 183 31190 0.018774463483 2.884417894834 42 28 531 3875 665611
+226	1858046 29 33012 33012 3.084417894834 3.084417894834 1 28 28 28 784
+226	12121959 3867 34836 265046 3.284417894834 28.484417894834 127 28 28 3556 99568
+226	25063184 3317 266868 460514 28.684417894834 49.884417894834 107 28 28 2996 83888
+vector 227 RSVPTE4.LSR5.ppp[3].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+227	1361139 1190 183 31190 0.018774463483 2.884417894834 42 21 524 3581 613419
+227	1858075 29 33012 33012 3.084417894834 3.084417894834 1 21 21 21 441
+227	12125826 3867 34836 265046 3.284417894834 28.484417894834 127 21 21 2667 56007
+227	25066501 3317 266868 460514 28.684417894834 49.884417894834 107 21 21 2247 47187
+vector 228 RSVPTE4.LSR3.ppp[2].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+228	1362329 1013 221 31714 0.019806741133 2.941149846777 36 28 1467 4522 2628568
+228	12129693 4049 33538 265570 3.141149846777 28.541149846777 133 28 34 3754 106132
+228	25069818 3441 267392 461038 28.741149846777 49.941149846777 111 28 34 3132 88512
+vector 229 RSVPTE4.LSR3.ppp[2].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+229	1363342 1013 221 31714 0.019806741133 2.941149846777 36 21 1460 4270 2567024
+229	12133742 4049 33538 265570 3.141149846777 28.541149846777 133 21 27 2823 60093
+229	25073259 3441 267392 461038 28.741149846777 49.941149846777 111 21 27 2355 50103
+vector 230 RSVPTE4.LSR5.ppp[4].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+230	1364355 6770 222 32192 0.019806741133 2.993853333334 228 28 531 35449 6038885
+230	1858104 270 32299 33007 3.003853333334 3.083853333334 9 167 167 1503 251001
+230	1874884 30 33094 33094 3.093853333334 3.093853333334 1 167 167 167 27889
+230	12137791 84421 33184 266669 3.103853333334 28.663853333334 2690 28 167 431188 71480970
+230	25076700 71673 266758 461516 28.673853333334 49.993853333334 2244 28 167 359675 59625881
+vector 231 RSVPTE4.LSR5.ppp[4].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+231	1371125 6770 222 32192 0.019806741133 2.993853333334 228 21 524 33853 5553771
+231	1858374 270 32299 33007 3.003853333334 3.083853333334 9 160 160 1440 230400
+231	1874914 30 33094 33094 3.093853333334 3.093853333334 1 160 160 160 25600
+231	12222212 84421 33184 266669 3.103853333334 28.663853333334 2690 21 160 412358 65576148
+231	25148373 71673 266758 461516 28.673853333334 49.993853333334 2244 21 160 343967 54700387
+vector 232 RSVPTE4.LSR1.ppp[1].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+232	1377895 1314 283 31469 0.021331281637 2.915583030667 47 28 819 5683 1916011
+232	12306633 4049 33293 265325 3.115583030667 28.515583030667 133 28 34 3754 106132
+232	25220046 3441 267147 460793 28.715583030667 49.915583030667 111 28 34 3132 88512
+vector 233 RSVPTE4.LSR1.ppp[1].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+233	1379209 1314 283 31469 0.021331281637 2.915583030667 47 21 812 5354 1838752
+233	12310682 4049 33293 265325 3.115583030667 28.515583030667 133 21 27 2823 60093
+233	25223487 3441 267147 460793 28.715583030667 49.915583030667 111 21 27 2355 50103
+vector 234 RSVPTE4.LSR1.ppp[3].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+234	1380523 8863 290 32169 0.022173333333 2.992173333333 298 163 163 48574 7917562
+234	1858644 270 32275 32984 3.002173333333 3.082173333333 9 163 163 1467 239121
+234	1874944 30 33071 33071 3.092173333333 3.092173333333 1 163 163 163 26569
+234	1880048 30 33159 33159 3.102173333333 3.102173333333 1 163 163 163 26569
+234	12314731 80404 33258 266735 3.112173333333 28.672173333333 2557 163 163 416791 67936933
+234	25226928 68224 266840 461493 28.682173333333 49.992173333333 2132 163 163 347516 56645108
+vector 235 RSVPTE4.LSR1.ppp[3].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+235	1389386 8863 290 32169 0.022173333333 2.992173333333 298 156 156 46488 7252128
+235	1858914 270 32275 32984 3.002173333333 3.082173333333 9 156 156 1404 219024
+235	1874974 30 33071 33071 3.092173333333 3.092173333333 1 156 156 156 24336
+235	1880078 30 33159 33159 3.102173333333 3.102173333333 1 156 156 156 24336
+235	12395135 80404 33258 266735 3.112173333333 28.672173333333 2557 156 156 398892 62227152
+235	25295152 68224 266840 461493 28.682173333333 49.992173333333 2132 156 156 332592 51884352
+vector 236 RSVPTE4.LSR1.ppp[2].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+236	1398249 8863 291 32170 0.022173333333 2.992173333333 298 163 163 48574 7917562
+236	1859184 270 32276 32985 3.002173333333 3.082173333333 9 163 163 1467 239121
+236	1875004 30 33072 33072 3.092173333333 3.092173333333 1 163 163 163 26569
+236	1880108 30 33160 33160 3.102173333333 3.102173333333 1 163 163 163 26569
+236	12475539 80404 33259 266736 3.112173333333 28.672173333333 2557 163 163 416791 67936933
+236	25363376 68224 266841 461494 28.682173333333 49.992173333333 2132 163 163 347516 56645108
+vector 237 RSVPTE4.LSR1.ppp[2].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+237	1407112 8863 291 32170 0.022173333333 2.992173333333 298 156 156 46488 7252128
+237	1859454 270 32276 32985 3.002173333333 3.082173333333 9 156 156 1404 219024
+237	1875034 30 33072 33072 3.092173333333 3.092173333333 1 156 156 156 24336
+237	1880138 30 33160 33160 3.102173333333 3.102173333333 1 156 156 156 24336
+237	12555943 80404 33259 266736 3.112173333333 28.672173333333 2557 156 156 398892 62227152
+237	25431600 68224 266841 461494 28.682173333333 49.992173333333 2132 156 156 332592 51884352
+vector 238 RSVPTE4.LSR1.ppp[4].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+238	1415975 8863 292 32171 0.022173333333 2.992173333333 298 163 163 48574 7917562
+238	1859724 270 32277 32986 3.002173333333 3.082173333333 9 163 163 1467 239121
+238	1875064 30 33073 33073 3.092173333333 3.092173333333 1 163 163 163 26569
+238	1880168 30 33161 33161 3.102173333333 3.102173333333 1 163 163 163 26569
+238	12636347 80404 33260 266737 3.112173333333 28.672173333333 2557 163 163 416791 67936933
+238	25499824 68224 266842 461495 28.682173333333 49.992173333333 2132 163 163 347516 56645108
+vector 239 RSVPTE4.LSR1.ppp[4].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+239	1424838 8863 292 32171 0.022173333333 2.992173333333 298 156 156 46488 7252128
+239	1859994 270 32277 32986 3.002173333333 3.082173333333 9 156 156 1404 219024
+239	1875094 30 33073 33073 3.092173333333 3.092173333333 1 156 156 156 24336
+239	1880198 30 33161 33161 3.102173333333 3.102173333333 1 156 156 156 24336
+239	12716751 80404 33260 266737 3.112173333333 28.672173333333 2557 156 156 398892 62227152
+239	25568048 68224 266842 461495 28.682173333333 49.992173333333 2132 156 156 332592 51884352
+vector 240 RSVPTE4.LSR1.ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, packetBytes"
+240	1433701 336 299 828 0.022173333333 0.052173333333 12 156 156 1872 292032
+vector 241 RSVPTE4.LSR1.ppp[3].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+241	1434037 112 308 835 0.022173333333 0.052173333333 4 448 448 1792 802816
+vector 242 RSVPTE4.LSR1.ppp[3].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+242	1434149 104 308 835 0.022173333333 0.052173333333 4 0 0 0 0
+vector 243 RSVPTE4.LSR1.ppp[3].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+243	1434253 112 308 835 0.022173333333 0.052173333333 4 448 448 1792 802816
+vector 244 RSVPTE4.LSR1.ppp[3].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+244	1434365 108 308 835 0.022173333333 0.052173333333 4 56 56 224 12544
+vector 245 RSVPTE4.LSR1.ppp[3].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+245	1434473 108 308 835 0.022173333333 0.052173333333 4 63 63 252 15876
+vector 246 RSVPTE4.LSR1.ppp[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+246	1434581 112 309 836 0.022173333333 0.052173333333 4 448 448 1792 802816
+vector 247 RSVPTE4.LSR1.ppp[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+247	1434693 104 309 836 0.022173333333 0.052173333333 4 0 0 0 0
+vector 248 RSVPTE4.LSR1.ppp[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+248	1434797 112 309 836 0.022173333333 0.052173333333 4 448 448 1792 802816
+vector 249 RSVPTE4.LSR1.ppp[2].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+249	1434909 108 309 836 0.022173333333 0.052173333333 4 56 56 224 12544
+vector 250 RSVPTE4.LSR1.ppp[2].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+250	1435017 108 309 836 0.022173333333 0.052173333333 4 63 63 252 15876
+vector 251 RSVPTE4.LSR1.ppp[4].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+251	1435125 112 310 837 0.022173333333 0.052173333333 4 448 448 1792 802816
+vector 252 RSVPTE4.LSR1.ppp[4].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+252	1435237 104 310 837 0.022173333333 0.052173333333 4 0 0 0 0
+vector 253 RSVPTE4.LSR1.ppp[4].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+253	1435341 112 310 837 0.022173333333 0.052173333333 4 448 448 1792 802816
+vector 254 RSVPTE4.LSR1.ppp[4].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+254	1435453 108 310 837 0.022173333333 0.052173333333 4 56 56 224 12544
+vector 255 RSVPTE4.LSR1.ppp[4].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+255	1435561 108 310 837 0.022173333333 0.052173333333 4 63 63 252 15876
+vector 256 RSVPTE4.LSR4.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+256	1435669 6501 322 32188 0.024211281637 2.993306666667 219 28 459 34355 5875519
+256	1860264 270 32295 33003 3.003306666667 3.083306666667 9 167 167 1503 251001
+256	1875124 30 33090 33090 3.093306666667 3.093306666667 1 167 167 167 27889
+256	1880228 30 33180 33180 3.103306666667 3.103306666667 1 167 167 167 27889
+256	12797155 84351 33277 266661 3.113306666667 28.663306666667 2689 28 167 431046 71459056
+256	25636272 71641 266754 461512 28.673306666667 49.993306666667 2244 28 167 359695 59630661
+vector 257 RSVPTE4.LSR4.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+257	1442170 6501 322 32188 0.024211281637 2.993306666667 219 21 452 32822 5405280
+257	1860534 270 32295 33003 3.003306666667 3.083306666667 9 160 160 1440 230400
+257	1875154 30 33090 33090 3.093306666667 3.093306666667 1 160 160 160 25600
+257	1880258 30 33180 33180 3.103306666667 3.103306666667 1 160 160 160 25600
+257	12881506 84351 33277 266661 3.113306666667 28.663306666667 2689 21 160 412223 65556173
+257	25707913 71641 266754 461512 28.673306666667 49.993306666667 2244 21 160 343987 54704887
+vector 258 RSVPTE4.LSR4.ppp[2].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+258	1448671 15476 323 32228 0.024211281637 2.998746666666 524 28 819 84002 14330894
+258	1860804 269 32251 32946 3.000774618612 3.078746666666 9 28 163 1332 213336
+258	1875184 30 33037 33037 3.088746666666 3.088746666666 1 163 163 163 26569
+258	1877167 30 33125 33125 3.098746666666 3.098746666666 1 163 163 163 26569
+258	12965857 84299 33219 266696 3.108746666666 28.668746666666 2685 28 163 420375 68037285
+258	25779554 71542 266802 461552 28.678746666666 49.998746666666 2239 28 163 350647 56754781
+vector 259 RSVPTE4.LSR4.ppp[2].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+259	1464147 15476 323 32228 0.024211281637 2.998746666666 524 21 812 80334 13180542
+259	1861073 269 32251 32946 3.000774618612 3.078746666666 9 21 156 1269 195129
+259	1875214 30 33037 33037 3.088746666666 3.088746666666 1 156 156 156 24336
+259	1877197 30 33125 33125 3.098746666666 3.098746666666 1 156 156 156 24336
+259	13050156 84299 33219 266696 3.108746666666 28.668746666666 2685 21 156 401580 62283600
+259	25851096 71542 266802 461552 28.678746666666 49.998746666666 2239 21 156 334974 51955434
+vector 260 RSVPTE4.LSR6.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+260	1479623 1320 351 31950 0.026331281637 2.967813561329 47 28 603 5311 1258835
+260	13134455 3896 33774 265806 3.167813561329 28.567813561329 128 28 28 3584 100352
+260	25922638 3317 267628 461274 28.767813561329 49.967813561329 107 28 28 2996 83888
+vector 261 RSVPTE4.LSR6.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+261	1480943 1320 351 31950 0.026331281637 2.967813561329 47 21 596 4982 1186784
+261	13138351 3896 33774 265806 3.167813561329 28.567813561329 128 21 21 2688 56448
+261	25925955 3317 267628 461274 28.767813561329 49.967813561329 107 21 21 2247 47187
+vector 262 RSVPTE4.LSR7.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+262	1482263 7114 354 32165 0.026331281637 2.991626666667 240 28 963 38294 7671364
+262	1861342 270 32271 32980 3.001626666667 3.081626666667 9 167 167 1503 251001
+262	1875244 30 33067 33067 3.091626666667 3.091626666667 1 167 167 167 27889
+262	1880288 30 33155 33155 3.101626666667 3.101626666667 1 167 167 167 27889
+262	13142247 84422 33254 266731 3.111626666667 28.671626666667 2690 28 167 431213 71486945
+262	25929272 71641 266836 461489 28.681626666667 49.991626666667 2243 28 167 359528 59602772
+vector 263 RSVPTE4.LSR7.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+263	1489377 7114 354 32165 0.026331281637 2.991626666667 240 21 956 36614 7147008
+263	1861612 270 32271 32980 3.001626666667 3.081626666667 9 160 160 1440 230400
+263	1875274 30 33067 33067 3.091626666667 3.091626666667 1 160 160 160 25600
+263	1880318 30 33155 33155 3.101626666667 3.101626666667 1 160 160 160 25600
+263	13226669 84422 33254 266731 3.111626666667 28.671626666667 2690 21 160 412383 65581773
+263	26000913 71641 266836 461489 28.681626666667 49.991626666667 2243 21 160 343827 54679287
+vector 264 RSVPTE4.host1.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+264	1496491 108 518 977 0.033013333333 0.063013333333 4 63 63 252 15876
+vector 265 RSVPTE4.host1.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+265	1496599 108 518 977 0.033013333333 0.063013333333 4 56 56 224 12544
+vector 266 RSVPTE4.host2.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+266	1496707 108 519 978 0.033013333333 0.063013333333 4 63 63 252 15876
+vector 267 RSVPTE4.host2.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+267	1496815 108 519 978 0.033013333333 0.063013333333 4 56 56 224 12544
+vector 268 RSVPTE4.host5.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+268	1496923 108 520 979 0.033013333333 0.063013333333 4 63 63 252 15876
+vector 269 RSVPTE4.host5.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+269	1497031 108 520 979 0.033013333333 0.063013333333 4 56 56 224 12544
+vector 270 RSVPTE4.LSR1.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+270	1497139 1309 662 30555 0.041051281637 2.812698744363 47 28 1507 6265 3190239
+270	1861882 29 32377 32377 3.012698744363 3.012698744363 1 28 28 28 784
+270	13311091 4050 34201 266233 3.212698744363 28.612698744363 133 28 34 3754 106132
+270	26072554 3410 268055 459879 28.812698744363 49.812698744363 110 28 34 3104 87728
+vector 271 RSVPTE4.LSR1.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+271	1498448 1309 662 30555 0.041051281637 2.812698744363 47 21 1500 5936 3104832
+271	1861911 29 32377 32377 3.012698744363 3.012698744363 1 21 21 21 441
+271	13315141 4050 34201 266233 3.212698744363 28.612698744363 133 21 27 2823 60093
+271	26075964 3410 268055 459879 28.812698744363 49.812698744363 110 21 27 2334 49662
+vector 272 RSVPTE4.LSR2.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+272	1499757 6048 724 32213 0.043598745046 2.99608 241 28 1507 38472 8438390
+272	1861940 242 32315 33027 3.00608 3.08608 10 28 167 1531 251785
+272	1877227 23 33110 33110 3.09608 3.09608 1 167 167 167 27889
+272	13319191 67506 33200 266686 3.10608 28.66608 2690 28 167 431238 71493170
+272	26079374 57519 266787 461537 28.67608 49.99608 2243 28 167 359687 59634857
+vector 273 RSVPTE4.LSR2.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+273	1505805 6048 724 32213 0.043598745046 2.99608 241 21 1500 36785 7911591
+273	1862182 242 32315 33027 3.00608 3.08608 10 21 160 1461 230841
+273	1877250 23 33110 33110 3.09608 3.09608 1 160 160 160 25600
+273	13386697 67506 33200 266686 3.10608 28.66608 2690 21 160 412408 65587648
+273	26136893 57519 266787 461537 28.67608 49.99608 2243 21 160 343986 54709146
+vector 274 RSVPTE4.LSR5.ppp[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+274	1511853 26856 1253 32207 0.083693333332 2.995919999999 873 1248 1248 1089504 1359700992
+274	1862424 837 32250 33021 3.000533333334 3.085919999999 27 1248 1248 33696 42052608
+274	1875304 62 33059 33097 3.090533333334 3.093853333334 2 1248 1248 2496 3115008
+274	1877273 31 33104 33104 3.095919999999 3.095919999999 1 1248 1248 1248 1557504
+274	1880348 31 33147 33147 3.100533333334 3.100533333334 1 1248 1248 1248 1557504
+274	13454203 248878 33187 266718 3.103853333334 28.670533333334 7671 1248 1248 9573408 11947613184
+274	26194412 211134 266761 461531 28.673853333334 49.995919999999 6398 1248 1248 7984704 9964910592
+vector 275 RSVPTE4.LSR5.ppp[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+275	1538709 26895 1253 32209 0.083693333332 2.996026666667 873 0 0.001960000008 0.056986666916 5.7125333434666e-05
+275	1863261 873 32250 33023 3.000533333334 3.086026666667 27 0 0.000106666668 0.000960000012 1.0240000256e-07
+275	1875366 56 33059 33097 3.090533333334 3.093853333334 2 0 0 0 0
+275	1877304 41 33106 33106 3.096026666667 3.096026666667 1 0.000106666668 0.000106666668 0.000106666668 1.1377778062222e-08
+275	1880379 28 33147 33147 3.100533333334 3.100533333334 1 0 0 0 0
+275	13703081 259261 33187 266718 3.103853333334 28.670533333334 7671 0 0.001760000002 0.314880003396 8.994986741621e-05
+275	26405546 219793 266761 461533 28.673853333334 49.996026666667 6398 0 0.001760000002 0.26122666949999 7.2954311735606e-05
+vector 276 RSVPTE4.LSR5.ppp[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+276	1565604 26762 1253 32209 0.083693333332 2.996026666667 873 1248 1248 1089504 1359700992
+276	1864134 837 32250 33023 3.000533333334 3.086026666667 27 1248 1248 33696 42052608
+276	1875422 62 33059 33097 3.090533333334 3.093853333334 2 1248 1248 2496 3115008
+276	1877345 31 33106 33106 3.096026666667 3.096026666667 1 1248 1248 1248 1557504
+276	1880407 31 33147 33147 3.100533333334 3.100533333334 1 1248 1248 1248 1557504
+276	13962342 248718 33187 266718 3.103853333334 28.670533333334 7671 1248 1248 9573408 11947613184
+276	26625339 211006 266761 461533 28.673853333334 49.996026666667 6398 1248 1248 7984704 9964910592
+vector 277 RSVPTE4.LSR5.ppp[1].ppp rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+277	1592366 25889 1253 32209 0.083693333332 2.996026666667 873 156 156 136188 21245328
+277	1864971 810 32250 33023 3.000533333334 3.086026666667 27 156 156 4212 657072
+277	1875484 60 33059 33097 3.090533333334 3.093853333334 2 156 156 312 48672
+277	1877376 30 33106 33106 3.096026666667 3.096026666667 1 156 156 156 24336
+277	1880438 30 33147 33147 3.100533333334 3.100533333334 1 156 156 156 24336
+277	14211060 241047 33187 266718 3.103853333334 28.670533333334 7671 156 156 1196676 186681456
+277	26836345 204608 266761 461533 28.673853333334 49.996026666667 6398 156 156 998088 155701728
+vector 278 RSVPTE4.LSR5.ppp[1].ppp txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+278	1618255 25889 1253 32209 0.083693333332 2.996026666667 873 163 163 142299 23194737
+278	1865781 810 32250 33023 3.000533333334 3.086026666667 27 163 163 4401 717363
+278	1875544 60 33059 33097 3.090533333334 3.093853333334 2 163 163 326 53138
+278	1877406 30 33106 33106 3.096026666667 3.096026666667 1 163 163 163 26569
+278	1880468 30 33147 33147 3.100533333334 3.100533333334 1 163 163 163 26569
+278	14452107 241047 33187 266718 3.103853333334 28.670533333334 7671 163 163 1250373 203810799
+278	27040953 204608 266761 461533 28.673853333334 49.996026666667 6398 163 163 1042874 169988462
+vector 279 RSVPTE4.host3.ppp[0].ppp rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+279	1644144 24465 1499 32222 0.095866666665 2.9982 870 163 163 141810 23115030
+279	1866591 716 32290 33022 3.002706666667 3.086026666667 26 163 163 4238 690794
+279	1875604 52 33031 33085 3.0882 3.092706666667 2 163 163 326 53138
+279	1877436 52 33105 33119 3.096026666667 3.0982 2 163 163 326 53138
+279	1880498 30 33175 33175 3.102706666667 3.102706666667 1 163 163 163 26569
+279	14693154 220872 33195 266749 3.106026666667 28.672706666667 7671 163 163 1250373 203810799
+279	27245561 187768 266782 461546 28.676026666667 49.9982 6398 163 163 1042874 169988462
+vector 280 RSVPTE4.host3.ppp[0].ppp passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+280	1668609 24465 1499 32222 0.095866666665 2.9982 870 156 156 135720 21172320
+280	1867307 716 32290 33022 3.002706666667 3.086026666667 26 156 156 4056 632736
+280	1875656 52 33031 33085 3.0882 3.092706666667 2 156 156 312 48672
+280	1877488 52 33105 33119 3.096026666667 3.0982 2 156 156 312 48672
+280	1880528 30 33175 33175 3.102706666667 3.102706666667 1 156 156 156 24336
+280	14914026 220872 33195 266749 3.106026666667 28.672706666667 7671 156 156 1196676 186681456
+280	27433329 187768 266782 461546 28.676026666667 49.9982 6398 156 156 998088 155701728
+vector 281 RSVPTE4.host3.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+281	1693074 24465 1505 32225 0.095866666665 2.9982 870 136 136 118320 16091520
+281	1868023 716 32293 33025 3.002706666667 3.086026666667 26 136 136 3536 480896
+281	1875708 52 33034 33088 3.0882 3.092706666667 2 136 136 272 36992
+281	1877540 52 33108 33122 3.096026666667 3.0982 2 136 136 272 36992
+281	1880558 30 33178 33178 3.102706666667 3.102706666667 1 136 136 136 18496
+281	15134898 220872 33198 266752 3.106026666667 28.672706666667 7671 136 136 1043256 141882816
+281	27621097 187768 266785 461549 28.676026666667 49.9982 6398 136 136 870128 118337408
+vector 282 RSVPTE4.host3.app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+282	1717539 24465 1507 32226 0.095866666665 2.9982 870 128 128 111360 14254080
+282	1868739 716 32294 33026 3.002706666667 3.086026666667 26 128 128 3328 425984
+282	1875760 52 33035 33089 3.0882 3.092706666667 2 128 128 256 32768
+282	1877592 52 33109 33123 3.096026666667 3.0982 2 128 128 256 32768
+282	1880588 30 33179 33179 3.102706666667 3.102706666667 1 128 128 128 16384
+282	15355770 220872 33199 266753 3.106026666667 28.672706666667 7671 128 128 981888 125681664
+282	27808865 187768 266786 461550 28.676026666667 49.9982 6398 128 128 818944 104824832
+vector 283 RSVPTE4.host3.app[0] endToEndDelay:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source dataAge(packetReceived)
+attr title "end-to-end delay"
+attr unit s
+283	1742004 32595 1507 32226 0.095866666665 2.9982 870 0.045866666665 0.080373333333 46.42812725844 2.5179092287122
+283	1869455 938 32294 33026 3.002706666667 3.086026666667 26 0.0482 0.063164626294 1.454657959633 0.082283584771087
+283	1875812 66 33035 33089 3.0882 3.092706666667 2 0.0482 0.062706666667 0.110906666667 0.0062553660444862
+283	1877644 66 33109 33123 3.096026666667 3.0982 2 0.0482 0.056026666667 0.104226666667 0.0054622273778151
+283	1880618 41 33179 33179 3.102706666667 3.102706666667 1 0.062706666667 0.062706666667 0.062706666667 0.0039321260444862
+283	15576642 284874 33199 266694 3.106026666667 28.6682 7670 0.0482 0.070373333333 427.0487557025 24.050199167139
+283	27996633 241221 266753 461550 28.672706666667 49.9982 6399 0.0482 0.070373333333 356.28079188339 20.064579041949
+vector 284 RSVPTE4.host3.app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number"
+284	1774599 24159 1507 32226 0.095866666665 2.9982 870 4 294 129196 25283222
+284	1870393 716 32294 33026 3.002706666667 3.086026666667 26 293 302 7743 2306097
+284	1875878 52 33035 33089 3.0882 3.092706666667 2 302 303 605 183013
+284	1877710 52 33109 33123 3.096026666667 3.0982 2 303 304 607 184225
+284	1880659 30 33179 33179 3.102706666667 3.102706666667 1 303 303 303 91809
+284	15861516 226423 33199 266694 3.106026666667 28.6682 7670 304 2861 12135219 23377884143
+284	28237854 194199 266753 461550 28.672706666667 49.9982 6399 2860 4994 25128873 101107209663
+vector 285 RSVPTE4.host1.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+285	1798758 627 1640 31320 0.1 2.9 29 112320 124800 3606720 448716902400
+285	1871109 20 32245 32245 3 3 1 124800 124800 124800 15575040000
+285	1880689 22 33142 33142 3.1 3.1 1 124800 124800 124800 15575040000
+285	16087939 5929 34069 266101 3.2 28.6 255 124800 124800 31824000 3971635200000
+285	28432053 5092 266998 461569 28.7 50 214 124800 124800 26707200 3333058560000
+vector 286 RSVPTE4.host1.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+286	1799385 627 1640 31320 0.1 2.9 29 112320 124800 3606720 448716902400
+286	1871129 20 32245 32245 3 3 1 124800 124800 124800 15575040000
+286	1880711 22 33142 33142 3.1 3.1 1 124800 124800 124800 15575040000
+286	16093868 5929 34069 266101 3.2 28.6 255 124800 124800 31824000 3971635200000
+286	28437145 5092 266998 461569 28.7 50 214 124800 124800 26707200 3333058560000
+vector 287 RSVPTE4.host2.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+287	1800012 627 1641 31321 0.1 2.9 29 112320 124800 3606720 448716902400
+287	1871149 20 32246 32246 3 3 1 124800 124800 124800 15575040000
+287	1880733 22 33143 33143 3.1 3.1 1 124800 124800 124800 15575040000
+287	16099797 5929 34070 266102 3.2 28.6 255 124800 124800 31824000 3971635200000
+287	28442237 5092 266999 461570 28.7 50 214 124800 124800 26707200 3333058560000
+vector 288 RSVPTE4.host2.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+288	1800639 627 1641 31321 0.1 2.9 29 112320 124800 3606720 448716902400
+288	1871169 20 32246 32246 3 3 1 124800 124800 124800 15575040000
+288	1880755 22 33143 33143 3.1 3.1 1 124800 124800 124800 15575040000
+288	16105726 5929 34070 266102 3.2 28.6 255 124800 124800 31824000 3971635200000
+288	28447329 5092 266999 461570 28.7 50 214 124800 124800 26707200 3333058560000
+vector 289 RSVPTE4.host5.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+289	1801266 627 1642 31322 0.1 2.9 29 112320 124800 3606720 448716902400
+289	1871189 20 32247 32247 3 3 1 124800 124800 124800 15575040000
+289	1880777 22 33144 33144 3.1 3.1 1 124800 124800 124800 15575040000
+289	16111655 5929 34071 266103 3.2 28.6 255 124800 124800 31824000 3971635200000
+289	28452421 5092 267000 461571 28.7 50 214 124800 124800 26707200 3333058560000
+vector 290 RSVPTE4.host5.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+290	1801893 627 1642 31322 0.1 2.9 29 112320 124800 3606720 448716902400
+290	1871209 20 32247 32247 3 3 1 124800 124800 124800 15575040000
+290	1880799 22 33144 33144 3.1 3.1 1 124800 124800 124800 15575040000
+290	16117584 5929 34071 266103 3.2 28.6 255 124800 124800 31824000 3971635200000
+290	28457513 5092 267000 461571 28.7 50 214 124800 124800 26707200 3333058560000
+vector 291 RSVPTE4.host3.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+291	1802520 626 1647 31355 0.1 2.9 29 20480 317440 8601600 2630877184000
+291	1871229 20 32294 32294 3 3 1 307200 307200 307200 94371840000
+291	1880821 22 33179 33179 3.1 3.1 1 307200 307200 307200 94371840000
+291	16123513 5929 34118 266150 3.2 28.6 255 307200 307200 78336000 24064819200000
+291	28462605 5092 267033 461572 28.7 50 214 307200 307200 65740800 20195573760000
+vector 292 RSVPTE4.LSR6.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+292	1803146 536 1663 31957 0.1 2.9 29 0 204480 289040 43693305600
+292	16129442 5052 33781 265813 3 28.5 256 0 1680 215040 361267200
+292	28467697 4365 267635 461572 28.6 50 215 0 1680 181440 304819200
+vector 293 RSVPTE4.LSR6.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+293	1803682 536 1663 31957 0.1 2.9 29 0 204480 289040 43693305600
+293	16134494 5052 33781 265813 3 28.5 256 0 1680 215040 361267200
+293	28472062 4365 267635 461572 28.6 50 215 0 1680 181440 304819200
+vector 294 RSVPTE4.LSR7.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+294	1804218 535 1664 31627 0.1 2.9 29 0 233280 339920 57411270400
+294	16139546 5067 33451 265483 3 28.5 256 0 2160 225840 384595200
+294	28476427 4377 267305 461572 28.6 50 215 0 2160 190080 323481600
+vector 295 RSVPTE4.LSR7.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+295	1804753 535 1664 31627 0.1 2.9 29 0 233280 339920 57411270400
+295	16144613 5067 33451 265483 3 28.5 256 0 2160 225840 384595200
+295	28480804 4377 267305 461572 28.6 50 215 0 2160 190080 323481600
+vector 296 RSVPTE4.LSR4.ppp[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+296	1805288 627 1670 31358 0.1 2.9 29 241920 433280 8682000 2718168774400
+296	1871249 20 32297 32297 3 3 1 252800 252800 252800 63907840000
+296	1880843 22 33182 33182 3.1 3.1 1 254480 254480 254480 64760070400
+296	16149680 5929 34121 266153 3.2 28.6 255 252800 263280 64721360 16427513900800
+296	28485181 5092 267036 461572 28.7 50 214 252800 263280 54314160 13785691564800
+vector 297 RSVPTE4.LSR4.ppp[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+297	1805915 627 1670 31358 0.1 2.9 29 241920 433280 8682000 2718168774400
+297	1871269 20 32297 32297 3 3 1 252800 252800 252800 63907840000
+297	1880865 22 33182 33182 3.1 3.1 1 254480 254480 254480 64760070400
+297	16155609 5929 34121 266153 3.2 28.6 255 252800 263280 64721360 16427513900800
+297	28490273 5092 267036 461572 28.7 50 214 252800 263280 54314160 13785691564800
+vector 298 RSVPTE4.LSR3.ppp[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+298	1806542 627 1684 31332 0.1 2.9 29 124800 412880 6301920 1781375936000
+298	1871289 20 32269 32269 3 3 1 126480 126480 126480 15997190400
+298	1880887 22 33154 33154 3.1 3.1 1 124800 124800 124800 15575040000
+298	16161538 5929 34093 266125 3.2 28.6 255 124800 126480 32039040 4025670451200
+298	28495365 5092 267010 461572 28.7 50 214 124800 126480 26886960 3378228652800
+vector 299 RSVPTE4.LSR3.ppp[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+299	1807169 627 1684 31332 0.1 2.9 29 124800 412880 6301920 1781375936000
+299	1871309 20 32269 32269 3 3 1 126480 126480 126480 15997190400
+299	1880909 22 33154 33154 3.1 3.1 1 124800 124800 124800 15575040000
+299	16167467 5929 34093 266125 3.2 28.6 255 124800 126480 32039040 4025670451200
+299	28500457 5092 267010 461572 28.7 50 214 124800 126480 26886960 3378228652800
+vector 300 RSVPTE4.LSR1.ppp[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+300	1807796 627 1702 31348 0.1 2.9 29 245120 383440 8578400 2637787686400
+300	1871329 20 32286 32286 3 3 1 254480 254480 254480 64760070400
+300	1880931 22 33170 33170 3.1 3.1 1 252800 252800 252800 63907840000
+300	16173396 5929 34110 266142 3.2 28.6 255 252800 262400 64727040 16430314291200
+300	28505549 5092 267026 461572 28.7 50 214 252800 262400 54317360 13787250092800
+vector 301 RSVPTE4.LSR1.ppp[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+301	1808423 627 1702 31348 0.1 2.9 29 245120 383440 8578400 2637787686400
+301	1871349 20 32286 32286 3 3 1 254480 254480 254480 64760070400
+301	1880953 22 33170 33170 3.1 3.1 1 252800 252800 252800 63907840000
+301	16179325 5929 34110 266142 3.2 28.6 255 252800 262400 64727040 16430314291200
+301	28510641 5092 267026 461572 28.7 50 214 252800 262400 54317360 13787250092800
+vector 302 RSVPTE4.LSR5.ppp[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+302	1809050 626 1716 31325 0.1 2.9 29 74880 386880 10520640 3904195276800
+302	1871369 20 32250 32250 3 3 1 374400 374400 374400 140175360000
+302	1880975 22 33147 33147 3.1 3.1 1 374400 374400 374400 140175360000
+302	16185254 5929 34074 266106 3.2 28.6 255 374400 374400 95472000 35744716800000
+302	28515733 5092 267003 461572 28.7 50 214 374400 374400 80121600 29997527040000
+vector 303 RSVPTE4.LSR5.ppp[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+303	1809676 626 1716 31325 0.1 2.9 29 74880 386880 10520640 3904195276800
+303	1871389 20 32250 32250 3 3 1 374400 374400 374400 140175360000
+303	1880997 22 33147 33147 3.1 3.1 1 374400 374400 374400 140175360000
+303	16191183 5929 34074 266106 3.2 28.6 255 374400 374400 95472000 35744716800000
+303	28520825 5092 267003 461572 28.7 50 214 374400 374400 80121600 29997527040000
+vector 304 RSVPTE4.LSR1.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+304	1810302 604 1723 31346 0.1 2.9 29 0 294080 2864160 410374540800
+304	1871409 20 32260 32260 3 3 1 128000 128000 128000 16384000000
+304	1881019 22 33168 33168 3.1 3.1 1 129680 129680 129680 16816902400
+304	16197112 5929 34084 266116 3.2 28.6 255 128000 139280 32901360 4245808684800
+304	28525917 5092 267024 461572 28.7 50 214 128000 139280 27610160 3562824620800
+vector 305 RSVPTE4.LSR1.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+305	1810906 604 1743 31346 0.1 2.9 29 0 149840 2840400 365662496000
+305	1871429 20 32260 32260 3 3 1 128000 128000 128000 16384000000
+305	1881041 22 33168 33168 3.1 3.1 1 129680 129680 129680 16816902400
+305	16203041 5929 34084 266116 3.2 28.6 255 128000 139280 32901360 4245808684800
+305	28531009 5092 267024 461572 28.7 50 214 128000 139280 27610160 3562824620800
+vector 306 RSVPTE4.LSR7.ppp[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+306	1811510 605 1761 31336 0.1 2.9 29 0 129680 2591360 318679257600
+306	1871449 20 32274 32274 3 3 1 129680 129680 129680 16816902400
+306	1881063 22 33158 33158 3.1 3.1 1 128000 128000 128000 16384000000
+306	16208970 5929 34098 266130 3.2 28.6 255 128000 136800 32899040 4244982707200
+306	28536101 5092 267014 461572 28.7 50 214 128000 136800 27606960 3561817516800
+vector 307 RSVPTE4.LSR7.ppp[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+307	1812115 605 1761 31336 0.1 2.9 29 0 129680 2591360 318679257600
+307	1871469 20 32274 32274 3 3 1 129680 129680 129680 16816902400
+307	1881085 22 33158 33158 3.1 3.1 1 128000 128000 128000 16384000000
+307	16214899 5929 34098 266130 3.2 28.6 255 128000 136800 32899040 4244982707200
+307	28541193 5092 267014 461572 28.7 50 214 128000 136800 27606960 3561817516800
+vector 308 RSVPTE4.LSR3.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+308	1812720 542 1824 31418 0.1 2.9 29 0 253760 426640 71726483200
+308	16220828 5067 33242 265274 3 28.5 256 0 2160 225840 384595200
+308	28546285 4377 267096 461572 28.6 50 215 0 2160 190080 323481600
+vector 309 RSVPTE4.LSR3.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+309	1813262 542 1824 31418 0.1 2.9 29 0 253760 426640 71726483200
+309	16225895 5067 33242 265274 3 28.5 256 0 2160 225840 384595200
+309	28550662 4377 267096 461572 28.6 50 215 0 2160 190080 323481600
+vector 310 RSVPTE4.LSR2.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+310	1813804 545 1893 32219 0.1 2.9 29 0 147840 474880 50577113600
+310	16230962 5067 34043 266075 3 28.5 256 0 2160 225840 384595200
+310	28555039 4377 267897 461572 28.6 50 215 0 2160 190080 323481600
+vector 311 RSVPTE4.LSR4.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+311	1814349 541 1898 31465 0.1 2.9 29 0 271040 407120 78118342400
+311	16236029 5067 33289 265321 3 28.5 256 0 2160 225840 384595200
+311	28559416 4377 267143 461572 28.6 50 215 0 2160 190080 323481600
+vector 312 RSVPTE4.LSR4.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+312	1814890 541 1898 31465 0.1 2.9 29 0 271040 407120 78118342400
+312	16241096 5067 33289 265321 3 28.5 256 0 2160 225840 384595200
+312	28563793 4377 267143 461572 28.6 50 215 0 2160 190080 323481600
+vector 313 RSVPTE4.LSR5.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+313	1815431 518 1959 31103 0.1 2.8 28 0 128080 203520 17700748800
+313	1871489 35 32925 32925 2.9 3 2 0 1680 1680 2822400
+313	16246163 5016 34749 264959 3.1 28.4 254 0 3760 223760 415020800
+313	28568170 4384 266781 461572 28.5 50 216 0 3760 189760 350080000
+vector 314 RSVPTE4.LSR5.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+314	1815949 518 1959 31103 0.1 2.8 28 0 128080 203520 17700748800
+314	1871524 35 32925 32925 2.9 3 2 0 1680 1680 2822400
+314	16251179 5016 34749 264959 3.1 28.4 254 0 3760 223760 415020800
+314	28572554 4384 266781 461572 28.5 50 216 0 3760 189760 350080000
+vector 315 RSVPTE4.LSR5.ppp[3].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+315	1816467 520 1960 30989 0.1 2.8 28 0 213520 392000 53654720000
+315	1871559 35 32811 32811 2.9 3 2 0 1680 1680 2822400
+315	16256195 5057 34635 266667 3.1 28.6 256 0 1680 215040 361267200
+315	28576938 4343 268489 461572 28.7 50 214 0 1680 179760 301996800
+vector 316 RSVPTE4.LSR5.ppp[3].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+316	1816987 520 1960 30989 0.1 2.8 28 0 213520 392000 53654720000
+316	1871594 35 32811 32811 2.9 3 2 0 1680 1680 2822400
+316	16261252 5057 34635 266667 3.1 28.6 256 0 1680 215040 361267200
+316	28581281 4343 268489 461572 28.7 50 214 0 1680 179760 301996800
+vector 317 RSVPTE4.LSR5.ppp[4].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+317	1817507 521 1980 31295 0.1 2.8 28 0 232400 410880 61315315200
+317	1877762 35 33117 33117 2.9 3 2 0 1680 1680 2822400
+317	16266309 5016 34941 265151 3.1 28.4 254 0 5840 234160 514860800
+317	28585624 4384 266973 461572 28.5 50 216 0 5840 198080 429952000
+vector 318 RSVPTE4.LSR5.ppp[4].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+318	1818028 521 1980 31295 0.1 2.8 28 0 232400 410880 61315315200
+318	1877797 35 33117 33117 2.9 3 2 0 1680 1680 2822400
+318	16271325 5016 34941 265151 3.1 28.4 254 0 5840 234160 514860800
+318	28590008 4384 266973 461572 28.5 50 216 0 5840 198080 429952000
+vector 319 RSVPTE4.LSR2.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+319	1818549 545 2022 32219 0.1 2.9 29 0 314560 520720 109295084800
+319	16276341 5067 34043 266075 3 28.5 256 0 2160 225840 384595200
+319	28594392 4377 267897 461572 28.6 50 215 0 2160 190080 323481600
+vector 320 RSVPTE4.LSR2.ppp[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+320	1819094 597 2023 31378 0.1 2.9 29 0 142480 2508880 315645638400
+320	1871629 20 32317 32317 3 3 1 129680 129680 129680 16816902400
+320	16281408 5951 33202 266173 3.1 28.6 256 128000 137200 33029040 4261914707200
+320	28598769 5092 267056 461572 28.7 50 214 128000 137200 27608560 3562255916800
+vector 321 RSVPTE4.LSR2.ppp[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+321	1819691 597 2023 31378 0.1 2.9 29 0 142480 2508880 315645638400
+321	1871649 20 32317 32317 3 3 1 129680 129680 129680 16816902400
+321	16287359 5951 33202 266173 3.1 28.6 256 128000 137200 33029040 4261914707200
+321	28603861 5092 267056 461572 28.7 50 214 128000 137200 27608560 3562255916800
+vector 322 RSVPTE4.LSR2.ppp[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+322	1820288 544 2024 31865 0.1 2.9 29 0 204480 396880 50696236800
+322	16293310 5052 33689 265721 3 28.5 256 0 1680 215040 361267200
+322	28608953 4365 267543 461572 28.6 50 215 0 1680 181440 304819200
+vector 323 RSVPTE4.LSR2.ppp[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+323	1820832 544 2024 31865 0.1 2.9 29 0 204480 396880 50696236800
+323	16298362 5052 33689 265721 3 28.5 256 0 1680 215040 361267200
+323	28613318 4365 267543 461572 28.6 50 215 0 1680 181440 304819200
+vector 324 RSVPTE4.LSR3.ppp[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+324	1821376 608 2109 31402 0.1 2.9 29 0 282560 2825040 399320979200
+324	1871669 20 32336 32336 3 3 1 129680 129680 129680 16816902400
+324	16303414 5951 33226 266192 3.1 28.6 256 128000 137200 33029040 4261914707200
+324	28617683 5092 267080 461572 28.7 50 214 128000 137200 27608560 3562255916800
+vector 325 RSVPTE4.LSR3.ppp[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+325	1821984 608 2109 31402 0.1 2.9 29 0 282560 2825040 399320979200
+325	1871689 20 32336 32336 3 3 1 129680 129680 129680 16816902400
+325	16309365 5951 33226 266192 3.1 28.6 256 128000 137200 33029040 4261914707200
+325	28622775 5092 267080 461572 28.7 50 214 128000 137200 27608560 3562255916800
+vector 326 RSVPTE4.LSR4.ppp[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+326	1822592 519 2144 30442 0.1 2.8 28 0 259520 391760 71189792000
+326	1871709 35 32264 32264 2.9 3 2 0 1680 1680 2822400
+326	16315316 5055 34088 266120 3.1 28.6 256 0 1680 215040 361267200
+326	28627867 4343 267942 461572 28.7 50 214 0 1680 179760 301996800
+vector 327 RSVPTE4.LSR4.ppp[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+327	1823111 519 2144 30442 0.1 2.8 28 0 259520 391760 71189792000
+327	1871744 35 32264 32264 2.9 3 2 0 1680 1680 2822400
+327	16320371 5055 34088 266120 3.1 28.6 256 0 1680 215040 361267200
+327	28632210 4343 267942 461572 28.7 50 214 0 1680 179760 301996800
+vector 328 RSVPTE4.LSR6.ppp[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+328	1823630 521 2295 31090 0.1 2.8 28 0 101840 284800 17317209600
+328	1871779 35 32912 32912 2.9 3 2 0 1680 1680 2822400
+328	16325426 5016 34736 264946 3.1 28.4 254 0 1680 213360 358444800
+328	28636553 4384 266768 461572 28.5 50 216 0 1680 181440 304819200
+vector 329 RSVPTE4.LSR6.ppp[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+329	1824151 521 2295 31090 0.1 2.8 28 0 101840 284800 17317209600
+329	1871814 35 32912 32912 2.9 3 2 0 1680 1680 2822400
+329	16330442 8038 34736 264946 3.1 28.4 254 0 1680 213360 358444800
+329	28640937 4384 266768 461572 28.5 50 216 0 1680 181440 304819200
+vector 330 RSVPTE4.LSR2.ppp[0].queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+330	1824672 203 2495 3388 0.138893754322 0.184644626294 7 168 736 4584 3278400
+vector 331 RSVPTE4.LSR1.ppp[0].queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+331	1824875 116 2559 3295 0.141333754323 0.179712077697 4 168 736 2376 1653312
+vector 332 RSVPTE4.LSR1.lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+332	1824991 29 14693 14693 1.102213333333 1.102213333333 1 25 25 25 625
+vector 333 RSVPTE4.LSR1.lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+333	1825020 29 14693 14693 1.102213333333 1.102213333333 1 25 25 25 625
+vector 334 RSVPTE4.LSR1.ppp[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+334	28645321 9305 461572 461572 0.1 50 500 0 17920 17920 321126400
+vector 335 RSVPTE4.LSR1.ppp[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+335	28654626 9305 461572 461572 0.1 50 500 0 17920 17920 321126400
+vector 336 RSVPTE4.LSR1.ppp[3].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+336	28663931 9305 461572 461572 0.1 50 500 0 17920 17920 321126400
+vector 337 RSVPTE4.LSR1.ppp[3].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+337	28673236 9305 461572 461572 0.1 50 500 0 17920 17920 321126400
+vector 338 RSVPTE4.LSR1.ppp[4].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+338	28682541 9305 461572 461572 0.1 50 500 0 17920 17920 321126400
+vector 339 RSVPTE4.LSR1.ppp[4].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+339	28691846 9305 461572 461572 0.1 50 500 0 17920 17920 321126400
+vector 340 RSVPTE4.LSR5.ppp[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+340	28701151 9301 461572 461572 0.1 50 500 0 0 0 0
+vector 341 RSVPTE4.LSR5.ppp[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+341	28710452 9301 461572 461572 0.1 50 500 0 0 0 0
+vector 342 RSVPTE4.host1.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+342	28719753 9301 461572 461572 0.1 50 500 0 0 0 0
+vector 343 RSVPTE4.host2.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+343	28729054 9301 461572 461572 0.1 50 500 0 0 0 0
+vector 344 RSVPTE4.host3.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+344	28738355 9301 461572 461572 0.1 50 500 0 0 0 0
+vector 345 RSVPTE4.host3.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+345	28747656 9301 461572 461572 0.1 50 500 0 0 0 0
+vector 346 RSVPTE4.host4.ppp[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+346	28756957 9301 461572 461572 0.1 50 500 0 0 0 0
+vector 347 RSVPTE4.host4.ppp[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+347	28766258 9301 461572 461572 0.1 50 500 0 0 0 0
+vector 348 RSVPTE4.host5.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+348	28775559 9303 461572 461572 0.1 50 500 0 0 0 0
